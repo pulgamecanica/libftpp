@@ -1,0 +1,503 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Patterns &mdash; libftpp 0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8dde47fa"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="IOStream" href="iostream.html" />
+    <link rel="prev" title="DataBuffer - Summary" href="data_buffer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            libftpp
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Welcome to LIBFTPP - README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_structures.html">Data Structures</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Design Patterns</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv47Memento"><code class="docutils literal notranslate"><span class="pre">Memento</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N7Memento8SnapshotE"><code class="docutils literal notranslate"><span class="pre">Memento::Snapshot</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N7Memento4saveEv"><code class="docutils literal notranslate"><span class="pre">Memento::save()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N7Memento4loadERK8Snapshot"><code class="docutils literal notranslate"><span class="pre">Memento::load()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N7MementoD0Ev"><code class="docutils literal notranslate"><span class="pre">Memento::~Memento()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N7Memento15_saveToSnapshotERN7Memento8SnapshotE"><code class="docutils literal notranslate"><span class="pre">Memento::_saveToSnapshot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N7Memento17_loadFromSnapshotERN7Memento8SnapshotE"><code class="docutils literal notranslate"><span class="pre">Memento::_loadFromSnapshot()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4I0E8Observer"><code class="docutils literal notranslate"><span class="pre">Observer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N8Observer9subscribeERK6TEventRKNSt8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">Observer::subscribe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N8Observer6notifyERK6TEvent"><code class="docutils literal notranslate"><span class="pre">Observer::notify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N8Observer10event_map_E"><code class="docutils literal notranslate"><span class="pre">Observer::event_map_</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4I0E9Singleton"><code class="docutils literal notranslate"><span class="pre">Singleton</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9Singleton9SingletonERK9Singleton"><code class="docutils literal notranslate"><span class="pre">Singleton::Singleton()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9SingletonaSERK9Singleton"><code class="docutils literal notranslate"><span class="pre">Singleton::operator=()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9Singleton8instanceEv"><code class="docutils literal notranslate"><span class="pre">Singleton::instance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4IDpEN9Singleton11instantiateEvDpRR5TArgs"><code class="docutils literal notranslate"><span class="pre">Singleton::instantiate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9Singleton9SingletonEv"><code class="docutils literal notranslate"><span class="pre">Singleton::Singleton()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9SingletonD0Ev"><code class="docutils literal notranslate"><span class="pre">Singleton::~Singleton()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9Singleton9instance_E"><code class="docutils literal notranslate"><span class="pre">Singleton::instance_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9Singleton6mutex_E"><code class="docutils literal notranslate"><span class="pre">Singleton::mutex_</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4I0E12StateMachine"><code class="docutils literal notranslate"><span class="pre">StateMachine</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N12StateMachine12StateMachineEv"><code class="docutils literal notranslate"><span class="pre">StateMachine::StateMachine()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N12StateMachine8addStateERK6TState"><code class="docutils literal notranslate"><span class="pre">StateMachine::addState()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N12StateMachine13addTransitionERK6TStateRK6TStateRKNSt8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">StateMachine::addTransition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N12StateMachine9addActionERK6TStateRKNSt8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">StateMachine::addAction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N12StateMachine12transitionToERK6TState"><code class="docutils literal notranslate"><span class="pre">StateMachine::transitionTo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N12StateMachine6updateEv"><code class="docutils literal notranslate"><span class="pre">StateMachine::update()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N12StateMachine7states_E"><code class="docutils literal notranslate"><span class="pre">StateMachine::states_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N12StateMachine8actions_E"><code class="docutils literal notranslate"><span class="pre">StateMachine::actions_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N12StateMachine12transitions_E"><code class="docutils literal notranslate"><span class="pre">StateMachine::transitions_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N12StateMachine13current_stateE"><code class="docutils literal notranslate"><span class="pre">StateMachine::current_state</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N12StateMachine18initialized_state_E"><code class="docutils literal notranslate"><span class="pre">StateMachine::initialized_state_</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="iostream.html">IOStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thread.html">Thread</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">libftpp</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Design Patterns</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/design_patterns.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="design-patterns">
+<h1>Design Patterns<a class="headerlink" href="#design-patterns" title="Link to this heading"></a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv47Memento">
+<span id="_CPPv37Memento"></span><span id="_CPPv27Memento"></span><span id="Memento"></span><span class="target" id="classMemento"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Memento</span></span></span><a class="headerlink" href="#_CPPv47Memento" title="Link to this definition"></a><br /></dt>
+<dd><p>Base class for implementing the <a class="reference internal" href="#classMemento"><span class="std std-ref">Memento</span></a> design pattern. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classMemento"><span class="std std-ref"><span class="pre">Memento</span></span></a></code> class enables derived classes to save and restore their state using <code class="docutils literal notranslate"><span class="pre">Snapshot</span></code> objects. It achieves this by exposing <code class="docutils literal notranslate"><a class="reference internal" href="#classMemento_1ae2efc38206f00da70bd938e6110f7227"><span class="std std-ref"><span class="pre">save()</span></span></a></code> and <code class="docutils literal notranslate"><a class="reference internal" href="#classMemento_1a7608856c40738f5cf387b90111229994"><span class="std std-ref"><span class="pre">load()</span></span></a></code> methods that internally call the private <code class="docutils literal notranslate"><a class="reference internal" href="#classMemento_1a6bd0bc87ec5e2377cd4390ba44b2f0d8"><span class="std std-ref"><span class="pre">_saveToSnapshot()</span></span></a></code> and <code class="docutils literal notranslate"><a class="reference internal" href="#classMemento_1a558691777736730e3799f343da4beb38"><span class="std std-ref"><span class="pre">_loadFromSnapshot()</span></span></a></code> methods of the derived class. These private methods are accessed using the <code class="docutils literal notranslate"><span class="pre">friend</span></code> mechanism, allowing <code class="docutils literal notranslate"><a class="reference internal" href="#classMemento"><span class="std std-ref"><span class="pre">Memento</span></span></a></code> to interact directly with the internals of derived classes.</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N7Memento8SnapshotE">
+<span id="_CPPv3N7Memento8SnapshotE"></span><span id="_CPPv2N7Memento8SnapshotE"></span><span class="target" id="classMemento_1ab5c68f7d3f7ecdd4c65ccccf2d606783"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Snapshot</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="data_structures.html#_CPPv410DataBuffer" title="DataBuffer"><span class="n"><span class="pre">DataBuffer</span></span></a><a class="headerlink" href="#_CPPv4N7Memento8SnapshotE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7Memento4saveEv">
+<span id="_CPPv3N7Memento4saveEv"></span><span id="_CPPv2N7Memento4saveEv"></span><span id="Memento::save"></span><span class="target" id="classMemento_1ae2efc38206f00da70bd938e6110f7227"></span><a class="reference internal" href="#_CPPv4N7Memento8SnapshotE" title="Memento::Snapshot"><span class="n"><span class="pre">Snapshot</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">save</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7Memento4saveEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Saves the current state of the object into a <code class="docutils literal notranslate"><span class="pre">Snapshot</span></code>. </p>
+<p>This method creates a new <code class="docutils literal notranslate"><span class="pre">Snapshot</span></code> and invokes the <code class="docutils literal notranslate"><a class="reference internal" href="#classMemento_1a6bd0bc87ec5e2377cd4390ba44b2f0d8"><span class="std std-ref"><span class="pre">_saveToSnapshot()</span></span></a></code> method of the derived class to populate it with the object’s state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <code class="docutils literal notranslate"><span class="pre">Snapshot</span></code> containing the serialized state of the object. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7Memento4loadERK8Snapshot">
+<span id="_CPPv3N7Memento4loadERK8Snapshot"></span><span id="_CPPv2N7Memento4loadERK8Snapshot"></span><span id="Memento::load__SnapshotCR"></span><span class="target" id="classMemento_1a7608856c40738f5cf387b90111229994"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">load</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N7Memento8SnapshotE" title="Memento::Snapshot"><span class="n"><span class="pre">Snapshot</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">snapshot</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7Memento4loadERK8Snapshot" title="Link to this definition"></a><br /></dt>
+<dd><p>Restores the object’s state from a given <code class="docutils literal notranslate"><span class="pre">Snapshot</span></code>. </p>
+<p>This method takes a <code class="docutils literal notranslate"><span class="pre">Snapshot</span></code> containing a previously saved state and invokes the <code class="docutils literal notranslate"><a class="reference internal" href="#classMemento_1a558691777736730e3799f343da4beb38"><span class="std std-ref"><span class="pre">_loadFromSnapshot()</span></span></a></code> method of the derived class to restore the object’s state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>snapshot</strong> – The <code class="docutils literal notranslate"><span class="pre">Snapshot</span></code> containing the serialized state to restore. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-functions">Protected Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7MementoD0Ev">
+<span id="_CPPv3N7MementoD0Ev"></span><span id="_CPPv2N7MementoD0Ev"></span><span id="Memento::~Memento"></span><span class="target" id="classMemento_1a642d6f71fa4f4ed84ff3e49fa5e85896"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~Memento</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N7MementoD0Ev" title="Link to this definition"></a><br /></dt>
+<dd><p>Virtual destructor for proper cleanup of derived classes. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7Memento15_saveToSnapshotERN7Memento8SnapshotE">
+<span id="_CPPv3N7Memento15_saveToSnapshotERN7Memento8SnapshotE"></span><span id="_CPPv2N7Memento15_saveToSnapshotERN7Memento8SnapshotE"></span><span id="Memento::_saveToSnapshot__Memento::SnapshotR"></span><span class="target" id="classMemento_1a6bd0bc87ec5e2377cd4390ba44b2f0d8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_saveToSnapshot</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv47Memento" title="Memento"><span class="n"><span class="pre">Memento</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N7Memento8SnapshotE" title="Memento::Snapshot"><span class="n"><span class="pre">Snapshot</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">snapshot</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7Memento15_saveToSnapshotERN7Memento8SnapshotE" title="Link to this definition"></a><br /></dt>
+<dd><p>Saves the state of the object into a <code class="docutils literal notranslate"><span class="pre">Snapshot</span></code>. </p>
+<p>Derived classes must implement this method to define how their state is serialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>snapshot</strong> – The <code class="docutils literal notranslate"><span class="pre">Snapshot</span></code> to populate with the object’s state. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7Memento17_loadFromSnapshotERN7Memento8SnapshotE">
+<span id="_CPPv3N7Memento17_loadFromSnapshotERN7Memento8SnapshotE"></span><span id="_CPPv2N7Memento17_loadFromSnapshotERN7Memento8SnapshotE"></span><span id="Memento::_loadFromSnapshot__Memento::SnapshotR"></span><span class="target" id="classMemento_1a558691777736730e3799f343da4beb38"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_loadFromSnapshot</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv47Memento" title="Memento"><span class="n"><span class="pre">Memento</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N7Memento8SnapshotE" title="Memento::Snapshot"><span class="n"><span class="pre">Snapshot</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">snapshot</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7Memento17_loadFromSnapshotERN7Memento8SnapshotE" title="Link to this definition"></a><br /></dt>
+<dd><p>Restores the state of the object from a <code class="docutils literal notranslate"><span class="pre">Snapshot</span></code>. </p>
+<p>Derived classes must implement this method to define how their state is deserialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>snapshot</strong> – The <code class="docutils literal notranslate"><span class="pre">Snapshot</span></code> containing the state to restore. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4I0E8Observer">
+<span id="_CPPv3I0E8Observer"></span><span id="_CPPv2I0E8Observer"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TEvent</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classObserver"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Observer</span></span></span><a class="headerlink" href="#_CPPv4I0E8Observer" title="Link to this definition"></a><br /></dt>
+<dd><p>A templated <a class="reference internal" href="#classObserver"><span class="std std-ref">Observer</span></a> class for subscribing to and notifying events. </p>
+<p>This class implements the <a class="reference internal" href="#classObserver"><span class="std std-ref">Observer</span></a> design pattern. It allows users to subscribe to specific events with lambda functions, and it notifies all subscribers when an event is triggered.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TEvent</strong> – The type of event that will be observed. </p>
+</dd>
+</dl>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8Observer9subscribeERK6TEventRKNSt8functionIFvvEEE">
+<span id="_CPPv3N8Observer9subscribeERK6TEventRKNSt8functionIFvvEEE"></span><span id="_CPPv2N8Observer9subscribeERK6TEventRKNSt8functionIFvvEEE"></span><span class="target" id="classObserver_1a68e3f8bd3188c940893d6aeb0b415f0c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">subscribe</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8Observer" title="Observer::TEvent"><span class="n"><span class="pre">TEvent</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">event</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">lambda</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Observer9subscribeERK6TEventRKNSt8functionIFvvEEE" title="Link to this definition"></a><br /></dt>
+<dd><p>Subscribe a lambda function to an event. </p>
+<p>This method allows a user to subscribe a lambda function to a specific event. The lambda will be called when the event is triggered via the <code class="docutils literal notranslate"><span class="pre">notify</span></code> method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event</strong> – The event to subscribe to. </p></li>
+<li><p><strong>lambda</strong> – The lambda function to be called when the event is triggered. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8Observer6notifyERK6TEvent">
+<span id="_CPPv3N8Observer6notifyERK6TEvent"></span><span id="_CPPv2N8Observer6notifyERK6TEvent"></span><span id="Observer::notify__TEventCR"></span><span class="target" id="classObserver_1afd0eb01458d6afdcdc7bdaf2e9337e69"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">notify</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8Observer" title="Observer::TEvent"><span class="n"><span class="pre">TEvent</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Observer6notifyERK6TEvent" title="Link to this definition"></a><br /></dt>
+<dd><p>Notify all subscribers of a specific event. </p>
+<p>This method notifies all subscribers that are subscribed to the provided event. It executes all lambdas that were subscribed to the event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> – The event to notify subscribers about. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8Observer10event_map_E">
+<span id="_CPPv3N8Observer10event_map_E"></span><span id="_CPPv2N8Observer10event_map_E"></span><span class="target" id="classObserver_1a83d0c79a0ed5c979c4d4381d1e72d593"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E8Observer" title="Observer::TEvent"><span class="n"><span class="pre">TEvent</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">event_map_</span></span></span><a class="headerlink" href="#_CPPv4N8Observer10event_map_E" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4I0E9Singleton">
+<span id="_CPPv3I0E9Singleton"></span><span id="_CPPv2I0E9Singleton"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TType</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classSingleton"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Singleton</span></span></span><a class="headerlink" href="#_CPPv4I0E9Singleton" title="Link to this definition"></a><br /></dt>
+<dd><p>A template class that ensures only one instance of <code class="docutils literal notranslate"><span class="pre">TType</span></code> exists. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classSingleton"><span class="std std-ref"><span class="pre">Singleton</span></span></a></code> class provides a thread-safe way to create and access a single instance of a templated class <code class="docutils literal notranslate"><span class="pre">TType</span></code>. It guarantees that <code class="docutils literal notranslate"><span class="pre">TType</span></code> will be instantiated only once and provides access to that instance through a static method.</p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classSingleton"><span class="std std-ref"><span class="pre">Singleton</span></span></a></code> class also prevents re-instantiation by throwing an exception if an attempt is made to instantiate the class after it has been created.</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9Singleton9SingletonERK9Singleton">
+<span id="_CPPv3N9Singleton9SingletonERK9Singleton"></span><span id="_CPPv2N9Singleton9SingletonERK9Singleton"></span><span id="Singleton::Singleton__SingletonCR"></span><span class="target" id="classSingleton_1ad5de70630f0c298054c0832fe5e4f00f"></span><span class="sig-name descname"><span class="n"><span class="pre">Singleton</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9Singleton9SingletonERK9Singleton" title="Singleton::Singleton"><span class="n"><span class="pre">Singleton</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N9Singleton9SingletonERK9Singleton" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9SingletonaSERK9Singleton">
+<span id="_CPPv3N9SingletonaSERK9Singleton"></span><span id="_CPPv2N9SingletonaSERK9Singleton"></span><span id="Singleton::assign-operator__SingletonCR"></span><span class="target" id="classSingleton_1a204df8689f8ef784ec5c6eda2fc5d060"></span><a class="reference internal" href="#_CPPv4I0E9Singleton" title="Singleton"><span class="n"><span class="pre">Singleton</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E9Singleton" title="Singleton"><span class="n"><span class="pre">Singleton</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N9SingletonaSERK9Singleton" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9Singleton8instanceEv">
+<span id="_CPPv3N9Singleton8instanceEv"></span><span id="_CPPv2N9Singleton8instanceEv"></span><span id="Singleton::instance"></span><span class="target" id="classSingleton_1a3ff867e32a146fd13957e5f3046cfcb8"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E9Singleton" title="Singleton::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">instance</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9Singleton8instanceEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Returns the managed instance of TType. </p>
+<p>If the instance is not yet created, it throws an exception.</p>
+<p>Protected, thread safe by using <code class="docutils literal notranslate"><span class="pre">std::lock_guard</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – If the instance is not yet created. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the unique instance of TType. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4IDpEN9Singleton11instantiateEvDpRR5TArgs">
+<span id="_CPPv3IDpEN9Singleton11instantiateEDpRR5TArgs"></span><span id="_CPPv2IDpEN9Singleton11instantiateEDpRR5TArgs"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="sig-name descname"><span class="n"><span class="pre">TArgs</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classSingleton_1a64cfacbb5d995bfdc4bace58466f5c25"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">instantiate</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4IDpEN9Singleton11instantiateEvDpRR5TArgs" title="Singleton::instantiate::TArgs"><span class="n"><span class="pre">TArgs</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">...</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">p_args</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IDpEN9Singleton11instantiateEvDpRR5TArgs" title="Link to this definition"></a><br /></dt>
+<dd><p>Instantiates the managed instance of TType with arguments. </p>
+<p>This function will only instantiate the instance once. If an attempt is made to instantiate it after it has already been created, it throws an exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TArgs</strong> – The types of the arguments used to instantiate the instance. </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>p_args</strong> – The arguments for instantiating the instance. </p>
+</dd>
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – If the instance is already created. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9Singleton9SingletonEv">
+<span id="_CPPv3N9Singleton9SingletonEv"></span><span id="_CPPv2N9Singleton9SingletonEv"></span><span id="Singleton::Singleton"></span><span class="target" id="classSingleton_1ae2322de52290d57f45b791aafbcd16f1"></span><span class="sig-name descname"><span class="n"><span class="pre">Singleton</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N9Singleton9SingletonEv" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9SingletonD0Ev">
+<span id="_CPPv3N9SingletonD0Ev"></span><span id="_CPPv2N9SingletonD0Ev"></span><span id="Singleton::~Singleton"></span><span class="target" id="classSingleton_1a432463f56898abb104f11368102c32d6"></span><span class="sig-name descname"><span class="n"><span class="pre">~Singleton</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N9SingletonD0Ev" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-static-attributes">Private Static Attributes</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9Singleton9instance_E">
+<span id="_CPPv3N9Singleton9instance_E"></span><span id="_CPPv2N9Singleton9instance_E"></span><span id="Singleton::instance___std::unique_ptr:TType:"></span><span class="target" id="classSingleton_1aeba2aad65c1ab08ecfb48c24aa182ab1"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E9Singleton" title="Singleton::TType"><span class="n"><span class="pre">TType</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">instance_</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><a class="headerlink" href="#_CPPv4N9Singleton9instance_E" title="Link to this definition"></a><br /></dt>
+<dd><p>The unique instance of TType. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9Singleton6mutex_E">
+<span id="_CPPv3N9Singleton6mutex_E"></span><span id="_CPPv2N9Singleton6mutex_E"></span><span id="Singleton::mutex___std::mutex"></span><span class="target" id="classSingleton_1a31ce77d533a8719e56d4fa1bc9cb5a49"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mutex</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mutex_</span></span></span><a class="headerlink" href="#_CPPv4N9Singleton6mutex_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Mutex to ensure thread safety. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4I0E12StateMachine">
+<span id="_CPPv3I0E12StateMachine"></span><span id="_CPPv2I0E12StateMachine"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TState</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classStateMachine"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">StateMachine</span></span></span><a class="headerlink" href="#_CPPv4I0E12StateMachine" title="Link to this definition"></a><br /></dt>
+<dd><p>A template class for managing states and transitions. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classStateMachine"><span class="std std-ref"><span class="pre">StateMachine</span></span></a></code> class enables handling of different states and their transitions through a state machine pattern. It allows users to define actions that execute when the state machine enters a specific state, and it also allows defining transitions between states.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TState</strong> – The type of the state, typically an enum representing the states. </p>
+</dd>
+</dl>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N12StateMachine12StateMachineEv">
+<span id="_CPPv3N12StateMachine12StateMachineEv"></span><span id="_CPPv2N12StateMachine12StateMachineEv"></span><span id="StateMachine::StateMachine"></span><span class="target" id="classStateMachine_1af0174f333ddce49bbc4a67f725cb33ec"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">StateMachine</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12StateMachine12StateMachineEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Default constructor for <code class="docutils literal notranslate"><a class="reference internal" href="#classStateMachine"><span class="std std-ref"><span class="pre">StateMachine</span></span></a></code>. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">initialized_state_</span></code> is false until any state is available. </p>
+</div>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N12StateMachine8addStateERK6TState">
+<span id="_CPPv3N12StateMachine8addStateERK6TState"></span><span id="_CPPv2N12StateMachine8addStateERK6TState"></span><span id="StateMachine::addState__TStateCR"></span><span class="target" id="classStateMachine_1a83dc47ea06bd5c4cca504b75712b3bf7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">addState</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12StateMachine" title="StateMachine::TState"><span class="n"><span class="pre">TState</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">state</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12StateMachine8addStateERK6TState" title="Link to this definition"></a><br /></dt>
+<dd><p>Adds a state to the state machine. </p>
+<p>This method registers a state that the state machine can transition into.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> – The state to be added to the state machine. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N12StateMachine13addTransitionERK6TStateRK6TStateRKNSt8functionIFvvEEE">
+<span id="_CPPv3N12StateMachine13addTransitionERK6TStateRK6TStateRKNSt8functionIFvvEEE"></span><span id="_CPPv2N12StateMachine13addTransitionERK6TStateRK6TStateRKNSt8functionIFvvEEE"></span><span class="target" id="classStateMachine_1a6dca57ef9a218a332a5ecce0ca444402"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">addTransition</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12StateMachine" title="StateMachine::TState"><span class="n"><span class="pre">TState</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">startState</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12StateMachine" title="StateMachine::TState"><span class="n"><span class="pre">TState</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">finalState</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">lambda</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12StateMachine13addTransitionERK6TStateRK6TStateRKNSt8functionIFvvEEE" title="Link to this definition"></a><br /></dt>
+<dd><p>Adds a transition between two states. </p>
+<p>This method registers a transition between a start state and a final state. It associates a lambda function to execute during the transition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>startState</strong> – The starting state of the transition. </p></li>
+<li><p><strong>finalState</strong> – The final state after the transition. </p></li>
+<li><p><strong>lambda</strong> – The lambda function to execute during the transition. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N12StateMachine9addActionERK6TStateRKNSt8functionIFvvEEE">
+<span id="_CPPv3N12StateMachine9addActionERK6TStateRKNSt8functionIFvvEEE"></span><span id="_CPPv2N12StateMachine9addActionERK6TStateRKNSt8functionIFvvEEE"></span><span class="target" id="classStateMachine_1ab9991e81a602a8db0bb5c934f1aeedae"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">addAction</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12StateMachine" title="StateMachine::TState"><span class="n"><span class="pre">TState</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">state</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">lambda</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12StateMachine9addActionERK6TStateRKNSt8functionIFvvEEE" title="Link to this definition"></a><br /></dt>
+<dd><p>Adds an action to be executed when the state machine enters a specific state. </p>
+<p>This method registers an action to be executed when the state machine is in a specific state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – The state for which the action is to be registered. </p></li>
+<li><p><strong>lambda</strong> – The lambda function to execute when the state machine enters the state. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N12StateMachine12transitionToERK6TState">
+<span id="_CPPv3N12StateMachine12transitionToERK6TState"></span><span id="_CPPv2N12StateMachine12transitionToERK6TState"></span><span id="StateMachine::transitionTo__TStateCR"></span><span class="target" id="classStateMachine_1a2a857d16ce20426696d71e07c76d7236"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">transitionTo</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12StateMachine" title="StateMachine::TState"><span class="n"><span class="pre">TState</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">state</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12StateMachine12transitionToERK6TState" title="Link to this definition"></a><br /></dt>
+<dd><p>Transition the state machine to a specific state. </p>
+<p>This method changes the state of the state machine and executes any transition action associated with it. If no transition is defined, it throws an exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> – The state to transition to.</p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – If current state has not been initialized. </p></li>
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If the transition is not defined. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N12StateMachine6updateEv">
+<span id="_CPPv3N12StateMachine6updateEv"></span><span id="_CPPv2N12StateMachine6updateEv"></span><span id="StateMachine::update"></span><span class="target" id="classStateMachine_1a56d03f57305682d7c427b0d242ab74bf"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">update</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12StateMachine6updateEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Updates the state machine, executing the action for the current state. </p>
+<p>This method checks if an action is defined for the current state and executes it. If no action is defined, throws an exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – If current state has not been initialized. </p></li>
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If the transition is not defined. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N12StateMachine7states_E">
+<span id="_CPPv3N12StateMachine7states_E"></span><span id="_CPPv2N12StateMachine7states_E"></span><span id="StateMachine::states___std::unordered_set:TState:"></span><span class="target" id="classStateMachine_1a54b87f9c38129e050ca0d3027689cd9d"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_set</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E12StateMachine" title="StateMachine::TState"><span class="n"><span class="pre">TState</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">states_</span></span></span><a class="headerlink" href="#_CPPv4N12StateMachine7states_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Registered states in the state machine. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N12StateMachine8actions_E">
+<span id="_CPPv3N12StateMachine8actions_E"></span><span id="_CPPv2N12StateMachine8actions_E"></span><span class="target" id="classStateMachine_1a52c121633da3f55c7709b43e8212daaf"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E12StateMachine" title="StateMachine::TState"><span class="n"><span class="pre">TState</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">actions_</span></span></span><a class="headerlink" href="#_CPPv4N12StateMachine8actions_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Actions for each state (one action per state). </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N12StateMachine12transitions_E">
+<span id="_CPPv3N12StateMachine12transitions_E"></span><span id="_CPPv2N12StateMachine12transitions_E"></span><span class="target" id="classStateMachine_1a193b7dae2bd6f0cf157ebb8f80192bfb"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E12StateMachine" title="StateMachine::TState"><span class="n"><span class="pre">TState</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E12StateMachine" title="StateMachine::TState"><span class="n"><span class="pre">TState</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">transitions_</span></span></span><a class="headerlink" href="#_CPPv4N12StateMachine12transitions_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Transitions between states. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N12StateMachine13current_stateE">
+<span id="_CPPv3N12StateMachine13current_stateE"></span><span id="_CPPv2N12StateMachine13current_stateE"></span><span id="StateMachine::current_state__TState"></span><span class="target" id="classStateMachine_1abc130732bd476de5756855e86eeafd6a"></span><a class="reference internal" href="#_CPPv4I0E12StateMachine" title="StateMachine::TState"><span class="n"><span class="pre">TState</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">current_state</span></span></span><a class="headerlink" href="#_CPPv4N12StateMachine13current_stateE" title="Link to this definition"></a><br /></dt>
+<dd><p>The current state of the state machine. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N12StateMachine18initialized_state_E">
+<span id="_CPPv3N12StateMachine18initialized_state_E"></span><span id="_CPPv2N12StateMachine18initialized_state_E"></span><span id="StateMachine::initialized_state___b"></span><span class="target" id="classStateMachine_1a8749622e95b43cc052e18a50b8259426"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">initialized_state_</span></span></span><a class="headerlink" href="#_CPPv4N12StateMachine18initialized_state_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Member to know if the machine has been initialized (any state is known) </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="data_buffer.html" class="btn btn-neutral float-left" title="DataBuffer - Summary" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="iostream.html" class="btn btn-neutral float-right" title="IOStream" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, pulgamecanica.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,466 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Structures &mdash; libftpp 0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8dde47fa"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Pool - Summary" href="pool.html" />
+    <link rel="prev" title="Welcome to the Object Pool and Data Buffer Library" href="README.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            libftpp
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Welcome to LIBFTPP - README</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4I0E4Pool"><code class="docutils literal notranslate"><span class="pre">Pool</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4Pool6resizeEK6size_t"><code class="docutils literal notranslate"><span class="pre">Pool::resize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4IDpEN4Pool7acquireE6ObjectDpRR5TArgs"><code class="docutils literal notranslate"><span class="pre">Pool::acquire()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4Pool7releaseEP5TType"><code class="docutils literal notranslate"><span class="pre">Pool::release()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4Pool5pool_E"><code class="docutils literal notranslate"><span class="pre">Pool::pool_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4Pool10allocated_E"><code class="docutils literal notranslate"><span class="pre">Pool::allocated_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4Pool6ObjectE"><code class="docutils literal notranslate"><span class="pre">Pool::Object</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4Pool6Object6ObjectEP5TTypeR4Pool"><code class="docutils literal notranslate"><span class="pre">Pool::Object::Object()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4Pool6ObjectD0Ev"><code class="docutils literal notranslate"><span class="pre">Pool::Object::~Object()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4Pool6ObjectptEv"><code class="docutils literal notranslate"><span class="pre">Pool::Object::operator-&gt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4Pool6Object4ptr_E"><code class="docutils literal notranslate"><span class="pre">Pool::Object::ptr_</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4Pool6Object5pool_E"><code class="docutils literal notranslate"><span class="pre">Pool::Object::pool_</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv410DataBuffer"><code class="docutils literal notranslate"><span class="pre">DataBuffer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N10DataBuffer10DataBufferEv"><code class="docutils literal notranslate"><span class="pre">DataBuffer::DataBuffer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N10DataBufferlsERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">DataBuffer::operator&lt;&lt;()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4I0EN10DataBufferlsER10DataBufferRK1T"><code class="docutils literal notranslate"><span class="pre">DataBuffer::operator&lt;&lt;()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N10DataBufferrsERNSt6stringE"><code class="docutils literal notranslate"><span class="pre">DataBuffer::operator&gt;&gt;()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4I0EN10DataBufferrsER10DataBufferR1T"><code class="docutils literal notranslate"><span class="pre">DataBuffer::operator&gt;&gt;()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK10DataBuffer7getDataEv"><code class="docutils literal notranslate"><span class="pre">DataBuffer::getData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N10DataBuffer7buffer_E"><code class="docutils literal notranslate"><span class="pre">DataBuffer::buffer_</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pool.html">Pool - Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_buffer.html">DataBuffer - Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="design_patterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iostream.html">IOStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thread.html">Thread</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">libftpp</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Data Structures</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/data_structures.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data-structures">
+<h1>Data Structures<a class="headerlink" href="#data-structures" title="Link to this heading"></a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4I0E4Pool">
+<span id="_CPPv3I0E4Pool"></span><span id="_CPPv2I0E4Pool"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TType</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classPool"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Pool</span></span></span><a class="headerlink" href="#_CPPv4I0E4Pool" title="Link to this definition"></a><br /></dt>
+<dd><p>Manages a collection of reusable objects of type <code class="docutils literal notranslate"><span class="pre">TType</span></code> using resource pooling. </p>
+<p>Provides efficient memory management by reusing a fixed number of type <code class="docutils literal notranslate"><span class="pre">TType</span></code> pre-allocated objects. If the pool is exhausted, new objects can still be allocated on demand and returned to the pool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TType</strong> – The type of object to manage in the pool. </p>
+</dd>
+</dl>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4Pool6resizeEK6size_t">
+<span id="_CPPv3N4Pool6resizeEK6size_t"></span><span id="_CPPv2N4Pool6resizeEK6size_t"></span><span id="Pool::resize__sC"></span><span class="target" id="classPool_1a367f3bfc7342a3be177e291db8d927cf"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">resize</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">new_size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4Pool6resizeEK6size_t" title="Link to this definition"></a><br /></dt>
+<dd><p>Resizes the pool to hold the specified number of pre-allocated objects. </p>
+<p>This method will add or remove objects in the pool based on the given <code class="docutils literal notranslate"><span class="pre">new_size</span></code>.<ul class="simple">
+<li><p><strong>If expanding</strong>: New objects are added to the pool up to <code class="docutils literal notranslate"><span class="pre">new_size</span></code>.</p></li>
+<li><p><strong>If shrinking</strong>: Objects are only removed if they are not in use.</p></li>
+</ul>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>new_size</strong> – The new target number of objects for the pool. </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If <code class="docutils literal notranslate"><span class="pre">new_size</span></code> is less than the number of currently in-use objects.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4IDpEN4Pool7acquireE6ObjectDpRR5TArgs">
+<span id="_CPPv3IDpEN4Pool7acquireEDpRR5TArgs"></span><span id="_CPPv2IDpEN4Pool7acquireEDpRR5TArgs"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="sig-name descname"><span class="n"><span class="pre">TArgs</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classPool_1ab076eee669882ef9fe396f624c6825a9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4Pool6ObjectE" title="Pool::Object"><span class="n"><span class="pre">Object</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">acquire</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4IDpEN4Pool7acquireE6ObjectDpRR5TArgs" title="Pool::acquire::TArgs"><span class="n"><span class="pre">TArgs</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">...</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">args</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IDpEN4Pool7acquireE6ObjectDpRR5TArgs" title="Link to this definition"></a><br /></dt>
+<dd><p>Acquires an object from the pool, constructing it if necessary. </p>
+<p>This method provides an object from the pool, or constructs one if none are available. It uses perfect forwarding (<code class="docutils literal notranslate"><span class="pre">std::forward&lt;TArgs&gt;(args)</span></code>) to pass arguments to the constructor, enabling efficient resource acquisition and initialization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TArgs</strong> – Variadic template parameter pack for constructor arguments. </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>args</strong> – Constructor arguments to initialize the object. </p>
+</dd>
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – if the pool is empty and unable to provide a new object.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <code class="docutils literal notranslate"><a class="reference internal" href="#classPool_1_1Object"><span class="std std-ref"><span class="pre">Pool::Object</span></span></a></code> that manages the acquired resource.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4Pool7releaseEP5TType">
+<span id="_CPPv3N4Pool7releaseEP5TType"></span><span id="_CPPv2N4Pool7releaseEP5TType"></span><span id="Pool::release__TTypeP"></span><span class="target" id="classPool_1a2e1d82f918e4f225ad1754c304771cac"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">release</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0E4Pool" title="Pool::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">ptr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4Pool7releaseEP5TType" title="Link to this definition"></a><br /></dt>
+<dd><p>Returns an object to the pool. </p>
+<p>This method is called by the <code class="docutils literal notranslate"><a class="reference internal" href="#classPool_1_1Object"><span class="std std-ref"><span class="pre">Object</span></span></a></code> class’s destructor when an <code class="docutils literal notranslate"><a class="reference internal" href="#classPool_1_1Object"><span class="std std-ref"><span class="pre">Object</span></span></a></code> instance goes out of scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ptr</strong> – Pointer to the object being returned to the pool. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N4Pool5pool_E">
+<span id="_CPPv3N4Pool5pool_E"></span><span id="_CPPv2N4Pool5pool_E"></span><span id="Pool::pool___std::stack:TTypeP:"></span><span class="target" id="classPool_1af3a2f9c10ed4bf1c49f7228e3f87813e"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">stack</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E4Pool" title="Pool::TType"><span class="n"><span class="pre">TType</span></span></a><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pool_</span></span></span><a class="headerlink" href="#_CPPv4N4Pool5pool_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Stack of available objects in the pool. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N4Pool10allocated_E">
+<span id="_CPPv3N4Pool10allocated_E"></span><span id="_CPPv2N4Pool10allocated_E"></span><span id="Pool::allocated___std::vector:std::unique_ptr:TType::"></span><span class="target" id="classPool_1a3237169fc1bab1b8a8ec778ced7d29d6"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E4Pool" title="Pool::TType"><span class="n"><span class="pre">TType</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">allocated_</span></span></span><a class="headerlink" href="#_CPPv4N4Pool10allocated_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Storage for all allocated objects. </p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4Pool6ObjectE">
+<span id="_CPPv3N4Pool6ObjectE"></span><span id="_CPPv2N4Pool6ObjectE"></span><span id="Pool::Object"></span><span class="target" id="classPool_1_1Object"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Object</span></span></span><a class="headerlink" href="#_CPPv4N4Pool6ObjectE" title="Link to this definition"></a><br /></dt>
+<dd><p>RAII-style wrapper for objects managed by the <a class="reference internal" href="#classPool"><span class="std std-ref">Pool</span></a>. </p>
+<p><code class="docutils literal notranslate"><a class="reference internal" href="#classPool_1_1Object"><span class="std std-ref"><span class="pre">Pool::Object</span></span></a></code> is designed to handle the lifecycle of an acquired resource from the pool. When an instance of <code class="docutils literal notranslate"><a class="reference internal" href="#classPool_1_1Object"><span class="std std-ref"><span class="pre">Object</span></span></a></code> goes out of scope, it automatically returns the object back to the pool, ensuring safe and efficient resource management. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4Pool6Object6ObjectEP5TTypeR4Pool">
+<span id="_CPPv3N4Pool6Object6ObjectEP5TTypeR4Pool"></span><span id="_CPPv2N4Pool6Object6ObjectEP5TTypeR4Pool"></span><span id="Pool::Object::Object__TTypeP.PoolR"></span><span class="target" id="classPool_1_1Object_1a42aa13ab83d73de6f32d31669f060dce"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Object</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0E4Pool" title="Pool::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">ptr</span></span>, <a class="reference internal" href="#_CPPv4I0E4Pool" title="Pool"><span class="n"><span class="pre">Pool</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pool</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4Pool6Object6ObjectEP5TTypeR4Pool" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructor for <code class="docutils literal notranslate"><a class="reference internal" href="#classPool_1_1Object"><span class="std std-ref"><span class="pre">Object</span></span></a></code>, used internally by <code class="docutils literal notranslate"><a class="reference internal" href="#classPool"><span class="std std-ref"><span class="pre">Pool</span></span></a></code> to wrap a resource. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ptr</strong> – Pointer to the <code class="docutils literal notranslate"><span class="pre">TType</span></code> object acquired from the pool. </p></li>
+<li><p><strong>pool</strong> – Reference to the parent <code class="docutils literal notranslate"><a class="reference internal" href="#classPool"><span class="std std-ref"><span class="pre">Pool</span></span></a></code> instance, used to return the object on destruction.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4Pool6ObjectD0Ev">
+<span id="_CPPv3N4Pool6ObjectD0Ev"></span><span id="_CPPv2N4Pool6ObjectD0Ev"></span><span id="Pool::Object::~Object"></span><span class="target" id="classPool_1_1Object_1a43347a76627bb12b6932fa3676d57dc7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~Object</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4Pool6ObjectD0Ev" title="Link to this definition"></a><br /></dt>
+<dd><p>Destructor for <code class="docutils literal notranslate"><a class="reference internal" href="#classPool_1_1Object"><span class="std std-ref"><span class="pre">Object</span></span></a></code>, automatically returns the resource to the pool. </p>
+<p>When the <code class="docutils literal notranslate"><a class="reference internal" href="#classPool_1_1Object"><span class="std std-ref"><span class="pre">Object</span></span></a></code> instance is destroyed, the managed object is returned to the pool instead of being deallocated. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4Pool6ObjectptEv">
+<span id="_CPPv3N4Pool6ObjectptEv"></span><span id="_CPPv2N4Pool6ObjectptEv"></span><span id="Pool::Object::pointer-operator"></span><span class="target" id="classPool_1_1Object_1acdfb51982a624dacba9480adfa60672b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E4Pool" title="Pool::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-&gt;</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4Pool6ObjectptEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Arrow operator overload to access the underlying <code class="docutils literal notranslate"><span class="pre">TType</span></code> object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pointer to the <code class="docutils literal notranslate"><span class="pre">TType</span></code> object. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N4Pool6Object4ptr_E">
+<span id="_CPPv3N4Pool6Object4ptr_E"></span><span id="_CPPv2N4Pool6Object4ptr_E"></span><span id="Pool::Object::ptr___TTypeP"></span><span class="target" id="classPool_1_1Object_1a6727b95459752f70b5da59eba95131ca"></span><a class="reference internal" href="#_CPPv4I0E4Pool" title="Pool::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">ptr_</span></span></span><a class="headerlink" href="#_CPPv4N4Pool6Object4ptr_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Pointer to the managed object. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N4Pool6Object5pool_E">
+<span id="_CPPv3N4Pool6Object5pool_E"></span><span id="_CPPv2N4Pool6Object5pool_E"></span><span id="Pool::Object::pool___PoolR"></span><span class="target" id="classPool_1_1Object_1aa2c6b4cb7fe38740d608212dd1be01d9"></span><a class="reference internal" href="#_CPPv4I0E4Pool" title="Pool"><span class="n"><span class="pre">Pool</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">pool_</span></span></span><a class="headerlink" href="#_CPPv4N4Pool6Object5pool_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Reference to the parent pool, for returning the object on destruction. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv410DataBuffer">
+<span id="_CPPv310DataBuffer"></span><span id="_CPPv210DataBuffer"></span><span id="DataBuffer"></span><span class="target" id="classDataBuffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DataBuffer</span></span></span><a class="headerlink" href="#_CPPv410DataBuffer" title="Link to this definition"></a><br /></dt>
+<dd><p>A polymorphic container for serializing and deserializing objects into byte format. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classDataBuffer"><span class="std std-ref"><span class="pre">DataBuffer</span></span></a></code> class allows storing and retrieving objects in a byte format. It handles serialization (storing objects in the buffer) and deserialization (retrieving objects from the buffer) using the <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> operators.</p>
+<p>The class uses an internal byte buffer to store serialized data and provides convenient methods for storing and loading data of various types.</p>
+<section id="classDataBuffer_1autotoc_md0">
+<h2>Example Usage:<a class="headerlink" href="#classDataBuffer_1autotoc_md0" title="Link to this heading"></a></h2>
+<section id="classDataBuffer_1autotoc_md1">
+<span id="classDataBuffer_1autotoc_md0"></span><h3>Serializing and Deserializing Basic Types:<a class="headerlink" href="#classDataBuffer_1autotoc_md1" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate" id="classDataBuffer_1autotoc_md1"><div class="highlight"><pre><span></span><span class="n">DataBuffer</span><span class="w"> </span><span class="n">buffer</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+<span class="n">buffer</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">number</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">deserializedNumber</span><span class="p">;</span>
+<span class="n">buffer</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">deserializedNumber</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Deserialized number: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">deserializedNumber</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w">  </span><span class="c1">// Output: 42</span>
+</pre></div>
+</div>
+</section>
+<section id="classDataBuffer_1autotoc_md2">
+<h3>Serializing and Deserializing Custom Objects:<a class="headerlink" href="#classDataBuffer_1autotoc_md2" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate" id="classDataBuffer_1autotoc_md2"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">TestObject</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="n">DataBuffer</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">DataBuffer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">p_buffer</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">TestObject</span><span class="o">&amp;</span><span class="w"> </span><span class="n">p_object</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">p_buffer</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p_object</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p_object</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">p_buffer</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="n">DataBuffer</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">DataBuffer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">p_buffer</span><span class="p">,</span><span class="w"> </span><span class="n">TestObject</span><span class="o">&amp;</span><span class="w"> </span><span class="n">p_object</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">p_buffer</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">p_object</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">p_object</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">p_buffer</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">DataBuffer</span><span class="w"> </span><span class="n">buffer</span><span class="p">;</span>
+<span class="n">TestObject</span><span class="w"> </span><span class="n">obj1</span><span class="p">{</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">};</span>
+<span class="n">buffer</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj1</span><span class="p">;</span>
+
+<span class="n">TestObject</span><span class="w"> </span><span class="n">deserializedObj</span><span class="p">;</span>
+<span class="n">buffer</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">deserializedObj</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Deserialized object: x = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">deserializedObj</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, y = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">deserializedObj</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N10DataBuffer10DataBufferEv">
+<span id="_CPPv3N10DataBuffer10DataBufferEv"></span><span id="_CPPv2N10DataBuffer10DataBufferEv"></span><span id="DataBuffer::DataBuffer"></span><span class="target" id="classDataBuffer_1a83f823dc058fe550713806bb49dd9651"></span><span class="sig-name descname"><span class="n"><span class="pre">DataBuffer</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10DataBuffer10DataBufferEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Default constructor for <code class="docutils literal notranslate"><a class="reference internal" href="#classDataBuffer"><span class="std std-ref"><span class="pre">DataBuffer</span></span></a></code>. </p>
+<p>Initializes an empty internal buffer to hold the serialized data. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N10DataBufferlsERKNSt6stringE">
+<span id="_CPPv3N10DataBufferlsERKNSt6stringE"></span><span id="_CPPv2N10DataBufferlsERKNSt6stringE"></span><span id="DataBuffer::lshift-operator__ssCR"></span><span class="target" id="classDataBuffer_1a50d92d179a3eb80877f8bd28a4bcc7c6"></span><a class="reference internal" href="#_CPPv410DataBuffer" title="DataBuffer"><span class="n"><span class="pre">DataBuffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">str</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10DataBufferlsERKNSt6stringE" title="Link to this definition"></a><br /></dt>
+<dd><p>Serialize a <code class="docutils literal notranslate"><span class="pre">std::string</span></code> object and store it in the buffer. </p>
+<p>This operator serializes the <code class="docutils literal notranslate"><span class="pre">std::string</span></code> object <code class="docutils literal notranslate"><span class="pre">str</span></code> by first storing its length followed by the characters of the string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>str</strong> – The <code class="docutils literal notranslate"><span class="pre">std::string</span></code> to be serialized and stored in the buffer. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A reference to the current <code class="docutils literal notranslate"><a class="reference internal" href="#classDataBuffer"><span class="std std-ref"><span class="pre">DataBuffer</span></span></a></code> object for method chaining. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN10DataBufferlsER10DataBufferRK1T">
+<span id="_CPPv3I0EN10DataBufferlsERK1T"></span><span id="_CPPv2I0EN10DataBufferlsERK1T"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classDataBuffer_1a0f10bdfbac14cf0309245dba2a3d3d6d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv410DataBuffer" title="DataBuffer"><span class="n"><span class="pre">DataBuffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN10DataBufferlsER10DataBufferRK1T" title="DataBuffer::operator&lt;&lt;::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">obj</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN10DataBufferlsER10DataBufferRK1T" title="Link to this definition"></a><br /></dt>
+<dd><p>Serialize an object and store it in the buffer. </p>
+<p>This operator appends the serialized representation of the object <code class="docutils literal notranslate"><span class="pre">obj</span></code> to the internal buffer. The object is first converted into a byte format and then inserted into the buffer.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The type <code class="docutils literal notranslate"><span class="pre">T</span></code> must be <strong>trivially copyable</strong>. This is enforced via a static assertion that will cause a compile-time error if the type <code class="docutils literal notranslate"><span class="pre">T</span></code> is not trivially copyable. A trivially copyable type is one that can be safely copied byte-by-byte (such as primitive types or simple structs without virtual functions or non-trivial destructors). <a class="reference external" href="https://en.cppreference.com/w/cpp/types/is_trivially_copyable">https://en.cppreference.com/w/cpp/types/is_trivially_copyable</a></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – The type of the object being serialized. </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>obj</strong> – The object to be serialized and stored in the buffer. </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A reference to the current <code class="docutils literal notranslate"><a class="reference internal" href="#classDataBuffer"><span class="std std-ref"><span class="pre">DataBuffer</span></span></a></code> object for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N10DataBufferrsERNSt6stringE">
+<span id="_CPPv3N10DataBufferrsERNSt6stringE"></span><span id="_CPPv2N10DataBufferrsERNSt6stringE"></span><span id="DataBuffer::rshift-operator__ssR"></span><span class="target" id="classDataBuffer_1a2c1b7f76e42d1d5648fe784904428751"></span><a class="reference internal" href="#_CPPv410DataBuffer" title="DataBuffer"><span class="n"><span class="pre">DataBuffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">str</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10DataBufferrsERNSt6stringE" title="Link to this definition"></a><br /></dt>
+<dd><p>Serialize a <code class="docutils literal notranslate"><span class="pre">std::string</span></code> object and store it in the buffer. </p>
+<p>This operator serializes the <code class="docutils literal notranslate"><span class="pre">std::string</span></code> object <code class="docutils literal notranslate"><span class="pre">str</span></code> by first storing its length followed by the characters of the string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>str</strong> – The <code class="docutils literal notranslate"><span class="pre">std::string</span></code> to be serialized and stored in the buffer. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A reference to the current <code class="docutils literal notranslate"><a class="reference internal" href="#classDataBuffer"><span class="std std-ref"><span class="pre">DataBuffer</span></span></a></code> object for method chaining. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN10DataBufferrsER10DataBufferR1T">
+<span id="_CPPv3I0EN10DataBufferrsER1T"></span><span id="_CPPv2I0EN10DataBufferrsER1T"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classDataBuffer_1a5009213ef48dbc4e501fb8f4968eaf30"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv410DataBuffer" title="DataBuffer"><span class="n"><span class="pre">DataBuffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN10DataBufferrsER10DataBufferR1T" title="DataBuffer::operator&gt;&gt;::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">obj</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN10DataBufferrsER10DataBufferR1T" title="Link to this definition"></a><br /></dt>
+<dd><p>Deserialize an object from the buffer. </p>
+<p>This operator retrieves data from the internal buffer and deserializes it into the object <code class="docutils literal notranslate"><span class="pre">obj</span></code>. If the buffer contains insufficient data for the requested object, an exception is thrown.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The type <code class="docutils literal notranslate"><span class="pre">T</span></code> must be <strong>trivially copyable</strong>. This is enforced via a static assertion that will cause a compile-time error if the type <code class="docutils literal notranslate"><span class="pre">T</span></code> is not trivially copyable. A trivially copyable type is one that can be safely copied byte-by-byte (such as primitive types or simple structs without virtual functions or non-trivial destructors). <a class="reference external" href="https://en.cppreference.com/w/cpp/types/is_trivially_copyable">https://en.cppreference.com/w/cpp/types/is_trivially_copyable</a></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – The type of the object being deserialized. </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>obj</strong> – The object to be deserialized and populated with data from the buffer. </p>
+</dd>
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">out_of_range</span></span></span> – If the buffer does not contain enough data for the object.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A reference to the current <code class="docutils literal notranslate"><a class="reference internal" href="#classDataBuffer"><span class="std std-ref"><span class="pre">DataBuffer</span></span></a></code> object for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK10DataBuffer7getDataEv">
+<span id="_CPPv3NK10DataBuffer7getDataEv"></span><span id="_CPPv2NK10DataBuffer7getDataEv"></span><span id="DataBuffer::getDataC"></span><span class="target" id="classDataBuffer_1a3a61ae05f6142ad029e67de6a2c537b0"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getData</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK10DataBuffer7getDataEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Retrieve the raw byte data stored in the buffer. </p>
+<p>This method returns a reference to the internal byte buffer containing the serialized data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A constant reference to the internal buffer. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N10DataBuffer7buffer_E">
+<span id="_CPPv3N10DataBuffer7buffer_E"></span><span id="_CPPv2N10DataBuffer7buffer_E"></span><span id="DataBuffer::buffer___std::vector:uint8_t:"></span><span class="target" id="classDataBuffer_1a79d6a7e4ebccbac3b9842b0aa4d2677c"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">buffer_</span></span></span><a class="headerlink" href="#_CPPv4N10DataBuffer7buffer_E" title="Link to this definition"></a><br /></dt>
+<dd><p>The internal buffer holding the serialized data. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pool.html">Pool - Summary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pool.html#purpose">Purpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pool.html#key-features">Key Features:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pool.html#methods">Methods:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pool.html#example-usage">Example Usage:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_buffer.html">DataBuffer - Summary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_buffer.html#purpose">Purpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_buffer.html#key-features">Key Features:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_buffer.html#methods">Methods:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_buffer.html#example-usage">Example Usage:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_buffer.html#serializing-and-deserializing-basic-types">Serializing and Deserializing Basic Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_buffer.html#serializing-and-deserializing-custom-objects">Serializing and Deserializing Custom Objects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="README.html" class="btn btn-neutral float-left" title="Welcome to the Object Pool and Data Buffer Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pool.html" class="btn btn-neutral float-right" title="Pool - Summary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, pulgamecanica.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

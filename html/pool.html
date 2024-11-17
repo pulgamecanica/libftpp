@@ -1,0 +1,174 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pool - Summary &mdash; libftpp 0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8dde47fa"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DataBuffer - Summary" href="data_buffer.html" />
+    <link rel="prev" title="Data Structures" href="data_structures.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            libftpp
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Welcome to LIBFTPP - README</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="data_structures.html">Data Structures</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data_structures.html#_CPPv4I0E4Pool"><code class="docutils literal notranslate"><span class="pre">Pool</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_structures.html#_CPPv410DataBuffer"><code class="docutils literal notranslate"><span class="pre">DataBuffer</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pool - Summary</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-features">Key Features:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#methods">Methods:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-usage">Example Usage:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_buffer.html">DataBuffer - Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="design_patterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iostream.html">IOStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thread.html">Thread</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">libftpp</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="data_structures.html">Data Structures</a></li>
+      <li class="breadcrumb-item active">Pool - Summary</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pool.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pool-summary">
+<h1>Pool - Summary<a class="headerlink" href="#pool-summary" title="Link to this heading"></a></h1>
+<p>This section provides an overview of two important data structures used in the project:
+the <code class="docutils literal notranslate"><span class="pre">Pool</span></code> class and the <code class="docutils literal notranslate"><span class="pre">DataBuffer</span></code> class. These classes are fundamental for resource
+management and object serialization within the library.</p>
+<p>The following sections describe each class in detail, including their purpose, methods, and usage.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Pool</span></code> class is a <strong>resource pool manager</strong> that handles a collection of reusable objects.
+It enables efficient memory management by pooling objects and reusing them, reducing the cost of
+repeated allocations and deallocations.</p>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Pool</span></code> class is designed to pre-allocate a certain number of objects of type <code class="docutils literal notranslate"><span class="pre">TType</span></code> and allow
+for efficient acquisition and release of these objects. When an object is no longer needed, it is returned
+to the pool, thus eliminating the need to delete or reallocate memory.</p>
+<p>This class follows the <strong>RAII</strong> (Resource Acquisition Is Initialization) principle, ensuring that
+objects are automatically returned to the pool when they go out of scope.</p>
+</section>
+<section id="key-features">
+<h2>Key Features:<a class="headerlink" href="#key-features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Pre-allocation of objects</strong>: The pool can be resized to allocate a set number of objects upfront.</p></li>
+<li><p><strong>Automatic resource management</strong>: When an object is acquired, it is wrapped in an <code class="docutils literal notranslate"><span class="pre">Pool::Object</span></code> that automatically returns the object to the pool when it goes out of scope.</p></li>
+<li><p><strong>Efficient reuse of objects</strong>: Objects that are no longer in use are returned to the pool for reuse.</p></li>
+</ul>
+</section>
+<section id="methods">
+<h2>Methods:<a class="headerlink" href="#methods" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>resize</strong>: Resizes the pool to a specific number of objects.</p></li>
+<li><p><strong>acquire</strong>: Acquires an object from the pool. If the pool is empty, it allocates a new object.</p></li>
+</ul>
+</section>
+<section id="example-usage">
+<h2>Example Usage:<a class="headerlink" href="#example-usage" title="Link to this heading"></a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Pool</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myPool</span><span class="p">;</span>
+
+<span class="c1">// Resize the pool to pre-allocate 10 objects</span>
+<span class="n">myPool</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+<span class="c1">// Acquire an object from the pool</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">obj1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myPool</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span>
+<span class="n">obj1</span><span class="o">-&gt;</span><span class="n">use</span><span class="p">();</span>
+
+<span class="c1">// If the pool runs out of objects, acquire will create a new one</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">obj2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myPool</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span>
+<span class="n">obj2</span><span class="o">-&gt;</span><span class="n">use</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>For more detailed documentation, see the class definition below.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="data_structures.html" class="btn btn-neutral float-left" title="Data Structures" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="data_buffer.html" class="btn btn-neutral float-right" title="DataBuffer - Summary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, pulgamecanica.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
