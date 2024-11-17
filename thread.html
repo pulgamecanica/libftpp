@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thread &mdash; libftpp 0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8dde47fa"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="IOStream" href="iostream.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            libftpp
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Welcome to LIBFTPP - README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_structures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_patterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iostream.html">IOStream</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Thread</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv46Thread"><code class="docutils literal notranslate"><span class="pre">Thread</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Thread6ThreadERKNSt6stringENSt8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">Thread::Thread()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Thread5startEv"><code class="docutils literal notranslate"><span class="pre">Thread::start()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Thread4stopEv"><code class="docutils literal notranslate"><span class="pre">Thread::stop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6ThreadD0Ev"><code class="docutils literal notranslate"><span class="pre">Thread::~Thread()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Thread12thread_name_E"><code class="docutils literal notranslate"><span class="pre">Thread::thread_name_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Thread5func_E"><code class="docutils literal notranslate"><span class="pre">Thread::func_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Thread7thread_E"><code class="docutils literal notranslate"><span class="pre">Thread::thread_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Thread11is_running_E"><code class="docutils literal notranslate"><span class="pre">Thread::is_running_</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4I0E15ThreadSafeQueue"><code class="docutils literal notranslate"><span class="pre">ThreadSafeQueue</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N15ThreadSafeQueue9push_backERK5TType"><code class="docutils literal notranslate"><span class="pre">ThreadSafeQueue::push_back()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N15ThreadSafeQueue10push_frontERK5TType"><code class="docutils literal notranslate"><span class="pre">ThreadSafeQueue::push_front()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N15ThreadSafeQueue8pop_backEv"><code class="docutils literal notranslate"><span class="pre">ThreadSafeQueue::pop_back()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N15ThreadSafeQueue9pop_frontEv"><code class="docutils literal notranslate"><span class="pre">ThreadSafeQueue::pop_front()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N15ThreadSafeQueue6queue_E"><code class="docutils literal notranslate"><span class="pre">ThreadSafeQueue::queue_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N15ThreadSafeQueue6mutex_E"><code class="docutils literal notranslate"><span class="pre">ThreadSafeQueue::mutex_</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv410WorkerPool"><code class="docutils literal notranslate"><span class="pre">WorkerPool</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N10WorkerPool10WorkerPoolE6size_t"><code class="docutils literal notranslate"><span class="pre">WorkerPool::WorkerPool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N10WorkerPoolD0Ev"><code class="docutils literal notranslate"><span class="pre">WorkerPool::~WorkerPool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N10WorkerPool6addJobERKNSt8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">WorkerPool::addJob()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N10WorkerPool11_workerLoopEv"><code class="docutils literal notranslate"><span class="pre">WorkerPool::_workerLoop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N10WorkerPool10job_queue_E"><code class="docutils literal notranslate"><span class="pre">WorkerPool::job_queue_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N10WorkerPool8workers_E"><code class="docutils literal notranslate"><span class="pre">WorkerPool::workers_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N10WorkerPool10stop_pool_E"><code class="docutils literal notranslate"><span class="pre">WorkerPool::stop_pool_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N10WorkerPool4IJobE"><code class="docutils literal notranslate"><span class="pre">WorkerPool::IJob</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N10WorkerPool4IJobD0Ev"><code class="docutils literal notranslate"><span class="pre">WorkerPool::IJob::~IJob()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4NK10WorkerPool4IJob7executeEv"><code class="docutils literal notranslate"><span class="pre">WorkerPool::IJob::execute()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N10WorkerPool3JobE"><code class="docutils literal notranslate"><span class="pre">WorkerPool::Job</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N10WorkerPool3Job3JobENSt8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">WorkerPool::Job::Job()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4NK10WorkerPool3Job7executeEv"><code class="docutils literal notranslate"><span class="pre">WorkerPool::Job::execute()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N10WorkerPool3Job5func_E"><code class="docutils literal notranslate"><span class="pre">WorkerPool::Job::func_</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv416PersistentWorker"><code class="docutils literal notranslate"><span class="pre">PersistentWorker</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N16PersistentWorker16PersistentWorkerEv"><code class="docutils literal notranslate"><span class="pre">PersistentWorker::PersistentWorker()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N16PersistentWorkerD0Ev"><code class="docutils literal notranslate"><span class="pre">PersistentWorker::~PersistentWorker()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N16PersistentWorker7addTaskERKNSt6stringERKNSt8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">PersistentWorker::addTask()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N16PersistentWorker10removeTaskERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">PersistentWorker::removeTask()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N16PersistentWorker12task_queues_E"><code class="docutils literal notranslate"><span class="pre">PersistentWorker::task_queues_</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">libftpp</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Thread</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/thread.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="thread">
+<h1>Thread<a class="headerlink" href="#thread" title="Link to this heading"></a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv46Thread">
+<span id="_CPPv36Thread"></span><span id="_CPPv26Thread"></span><span id="Thread"></span><span class="target" id="classThread"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Thread</span></span></span><a class="headerlink" href="#_CPPv46Thread" title="Link to this definition"></a><br /></dt>
+<dd><p>A wrapper for <code class="docutils literal notranslate"><span class="pre">std::thread</span></code> with a name and controlled start/stop lifecycle. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classThread"><span class="std std-ref"><span class="pre">Thread</span></span></a></code> class encapsulates an <code class="docutils literal notranslate"><span class="pre">std::thread</span></code> and provides additional functionality:<ul class="simple">
+<li><p>Named threads for debugging purposes.</p></li>
+<li><p>Explicit start and stop control for better thread lifecycle management. </p></li>
+</ul>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Thread6ThreadERKNSt6stringENSt8functionIFvvEEE">
+<span id="_CPPv3N6Thread6ThreadERKNSt6stringENSt8functionIFvvEEE"></span><span id="_CPPv2N6Thread6ThreadERKNSt6stringENSt8functionIFvvEEE"></span><span class="target" id="classThread_1a9d1f18fca381d450049160e33a2d2ffd"></span><span class="sig-name descname"><span class="n"><span class="pre">Thread</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">func_to_execute</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Thread6ThreadERKNSt6stringENSt8functionIFvvEEE" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs a named thread with a function to execute. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The name of the thread. </p></li>
+<li><p><strong>func_to_execute</strong> – The function to execute when the thread starts. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Thread5startEv">
+<span id="_CPPv3N6Thread5startEv"></span><span id="_CPPv2N6Thread5startEv"></span><span id="Thread::start"></span><span class="target" id="classThread_1a1f53ee62bd30a7924186ef26150ce262"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">start</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Thread5startEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Starts the thread, executing the provided function. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – if the thread has already started. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Thread4stopEv">
+<span id="_CPPv3N6Thread4stopEv"></span><span id="_CPPv2N6Thread4stopEv"></span><span id="Thread::stop"></span><span class="target" id="classThread_1abd50159ecd409936f454c2321f673616"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">stop</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Thread4stopEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Stops the thread and ensures proper cleanup. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – if the thread is not running. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6ThreadD0Ev">
+<span id="_CPPv3N6ThreadD0Ev"></span><span id="_CPPv2N6ThreadD0Ev"></span><span id="Thread::~Thread"></span><span class="target" id="classThread_1a37d9edd3a1a776cbc27dedff949c9726"></span><span class="sig-name descname"><span class="n"><span class="pre">~Thread</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6ThreadD0Ev" title="Link to this definition"></a><br /></dt>
+<dd><p>Destructor to ensure the thread is joined before destruction. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Thread12thread_name_E">
+<span id="_CPPv3N6Thread12thread_name_E"></span><span id="_CPPv2N6Thread12thread_name_E"></span><span id="Thread::thread_name___ss"></span><span class="target" id="classThread_1a79dd031f087828651647937af4001ab9"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">thread_name_</span></span></span><a class="headerlink" href="#_CPPv4N6Thread12thread_name_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Name of the thread for identification. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Thread5func_E">
+<span id="_CPPv3N6Thread5func_E"></span><span id="_CPPv2N6Thread5func_E"></span><span class="target" id="classThread_1ad8ac6e96a52e6ea34ee4d1d0e59e215f"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">func_</span></span></span><a class="headerlink" href="#_CPPv4N6Thread5func_E" title="Link to this definition"></a><br /></dt>
+<dd><p>The function to execute in the thread. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Thread7thread_E">
+<span id="_CPPv3N6Thread7thread_E"></span><span id="_CPPv2N6Thread7thread_E"></span><span id="Thread::thread___std::thread"></span><span class="target" id="classThread_1ad313ba812a7875c743dd0d37d565acfb"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">thread</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">thread_</span></span></span><a class="headerlink" href="#_CPPv4N6Thread7thread_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Internal <code class="docutils literal notranslate"><span class="pre">std::thread</span></code> instance. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Thread11is_running_E">
+<span id="_CPPv3N6Thread11is_running_E"></span><span id="_CPPv2N6Thread11is_running_E"></span><span id="Thread::is_running___b"></span><span class="target" id="classThread_1aba299704e850fbec64140126bddda062"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_running_</span></span></span><a class="headerlink" href="#_CPPv4N6Thread11is_running_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Tracks the running state of the thread. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4I0E15ThreadSafeQueue">
+<span id="_CPPv3I0E15ThreadSafeQueue"></span><span id="_CPPv2I0E15ThreadSafeQueue"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TType</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classThreadSafeQueue"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ThreadSafeQueue</span></span></span><a class="headerlink" href="#_CPPv4I0E15ThreadSafeQueue" title="Link to this definition"></a><br /></dt>
+<dd><p>A thread-safe implementation of a templated queue. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classThreadSafeQueue"><span class="std std-ref"><span class="pre">ThreadSafeQueue</span></span></a></code> class ensures safe access and modification of a queue shared across multiple threads using mutex locks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TType</strong> – The type of elements stored in the queue. </p>
+</dd>
+</dl>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15ThreadSafeQueue9push_backERK5TType">
+<span id="_CPPv3N15ThreadSafeQueue9push_backERK5TType"></span><span id="_CPPv2N15ThreadSafeQueue9push_backERK5TType"></span><span id="ThreadSafeQueue::push_back__TTypeCR"></span><span class="target" id="classThreadSafeQueue_1a8e22a87ef29f2950488cca427d8d40a4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">push_back</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E15ThreadSafeQueue" title="ThreadSafeQueue::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">new_element</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15ThreadSafeQueue9push_backERK5TType" title="Link to this definition"></a><br /></dt>
+<dd><p>Adds an element to the end of the queue. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>new_element</strong> – The element to be added. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15ThreadSafeQueue10push_frontERK5TType">
+<span id="_CPPv3N15ThreadSafeQueue10push_frontERK5TType"></span><span id="_CPPv2N15ThreadSafeQueue10push_frontERK5TType"></span><span id="ThreadSafeQueue::push_front__TTypeCR"></span><span class="target" id="classThreadSafeQueue_1a6179543c53c1812787ca5ee51502290f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">push_front</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E15ThreadSafeQueue" title="ThreadSafeQueue::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">new_element</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15ThreadSafeQueue10push_frontERK5TType" title="Link to this definition"></a><br /></dt>
+<dd><p>Adds an element to the front of the queue. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>new_element</strong> – The element to be added. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15ThreadSafeQueue8pop_backEv">
+<span id="_CPPv3N15ThreadSafeQueue8pop_backEv"></span><span id="_CPPv2N15ThreadSafeQueue8pop_backEv"></span><span id="ThreadSafeQueue::pop_back"></span><span class="target" id="classThreadSafeQueue_1a4aadeb68587a4c6fafe552a52d2f0f86"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E15ThreadSafeQueue" title="ThreadSafeQueue::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pop_back</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15ThreadSafeQueue8pop_backEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Removes and returns the last element of the queue. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – if the queue is empty. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The last element of the queue. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15ThreadSafeQueue9pop_frontEv">
+<span id="_CPPv3N15ThreadSafeQueue9pop_frontEv"></span><span id="_CPPv2N15ThreadSafeQueue9pop_frontEv"></span><span id="ThreadSafeQueue::pop_front"></span><span class="target" id="classThreadSafeQueue_1ab12bfd6f1e714299dc022751ca04c578"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E15ThreadSafeQueue" title="ThreadSafeQueue::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pop_front</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15ThreadSafeQueue9pop_frontEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Removes and returns the first element of the queue. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – if the queue is empty. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The first element of the queue. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N15ThreadSafeQueue6queue_E">
+<span id="_CPPv3N15ThreadSafeQueue6queue_E"></span><span id="_CPPv2N15ThreadSafeQueue6queue_E"></span><span id="ThreadSafeQueue::queue___std::deque:TType:"></span><span class="target" id="classThreadSafeQueue_1a0bb63cbedf81687a48bb7847b534d67a"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">deque</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E15ThreadSafeQueue" title="ThreadSafeQueue::TType"><span class="n"><span class="pre">TType</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">queue_</span></span></span><a class="headerlink" href="#_CPPv4N15ThreadSafeQueue6queue_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Underlying deque to store elements. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N15ThreadSafeQueue6mutex_E">
+<span id="_CPPv3N15ThreadSafeQueue6mutex_E"></span><span id="_CPPv2N15ThreadSafeQueue6mutex_E"></span><span id="ThreadSafeQueue::mutex___std::mutex"></span><span class="target" id="classThreadSafeQueue_1af64545c36a7197a1655c490327494abc"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mutex</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mutex_</span></span></span><a class="headerlink" href="#_CPPv4N15ThreadSafeQueue6mutex_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Mutex for thread-safe access to the queue. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv410WorkerPool">
+<span id="_CPPv310WorkerPool"></span><span id="_CPPv210WorkerPool"></span><span id="WorkerPool"></span><span class="target" id="classWorkerPool"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WorkerPool</span></span></span><a class="headerlink" href="#_CPPv410WorkerPool" title="Link to this definition"></a><br /></dt>
+<dd><p>A pool of worker threads that executes jobs. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classWorkerPool"><span class="std std-ref"><span class="pre">WorkerPool</span></span></a></code> class manages a collection of worker threads, which continuously pull jobs from a thread-safe queue and execute them. The jobs are submitted as <code class="docutils literal notranslate"><a class="reference internal" href="#classWorkerPool_1_1IJob"><span class="std std-ref"><span class="pre">IJob</span></span></a></code> objects, which contain a <code class="docutils literal notranslate"><span class="pre">std::function&lt;void()&gt;</span></code> to be executed by the threads. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N10WorkerPool10WorkerPoolE6size_t">
+<span id="_CPPv3N10WorkerPool10WorkerPoolE6size_t"></span><span id="_CPPv2N10WorkerPool10WorkerPoolE6size_t"></span><span id="WorkerPool::WorkerPool__s"></span><span class="target" id="classWorkerPool_1a34250d5204081eaabb59452a2c4e3e13"></span><span class="sig-name descname"><span class="n"><span class="pre">WorkerPool</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_threads</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">thread</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">hardware_concurrency</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10WorkerPool10WorkerPoolE6size_t" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs a <a class="reference internal" href="#classWorkerPool"><span class="std std-ref">WorkerPool</span></a> with a specified number of threads. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>num_threads</strong> – The number of worker threads in the pool. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N10WorkerPoolD0Ev">
+<span id="_CPPv3N10WorkerPoolD0Ev"></span><span id="_CPPv2N10WorkerPoolD0Ev"></span><span id="WorkerPool::~WorkerPool"></span><span class="target" id="classWorkerPool_1af4ff5d62810ecbbf010558f2002b2571"></span><span class="sig-name descname"><span class="n"><span class="pre">~WorkerPool</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10WorkerPoolD0Ev" title="Link to this definition"></a><br /></dt>
+<dd><p>Destructor that stops all threads and joins them. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N10WorkerPool6addJobERKNSt8functionIFvvEEE">
+<span id="_CPPv3N10WorkerPool6addJobERKNSt8functionIFvvEEE"></span><span id="_CPPv2N10WorkerPool6addJobERKNSt8functionIFvvEEE"></span><span class="target" id="classWorkerPool_1ab9df8cd4f29016e242ef6040ce8bcdd7"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">addJob</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">job_to_execute</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10WorkerPool6addJobERKNSt8functionIFvvEEE" title="Link to this definition"></a><br /></dt>
+<dd><p>Adds a job to the pool for execution. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>job_to_execute</strong> – The job (function) to execute. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N10WorkerPool11_workerLoopEv">
+<span id="_CPPv3N10WorkerPool11_workerLoopEv"></span><span id="_CPPv2N10WorkerPool11_workerLoopEv"></span><span id="WorkerPool::_workerLoop"></span><span class="target" id="classWorkerPool_1a42ba488c7931a6e0516ec9c6f51fd0e2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_workerLoop</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10WorkerPool11_workerLoopEv" title="Link to this definition"></a><br /></dt>
+<dd><p>The worker thread loop that continuously processes jobs from the queue. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N10WorkerPool10job_queue_E">
+<span id="_CPPv3N10WorkerPool10job_queue_E"></span><span id="_CPPv2N10WorkerPool10job_queue_E"></span><span id="WorkerPool::job_queue___ThreadSafeQueue:std::unique_ptr:IJob::"></span><span class="target" id="classWorkerPool_1a073cc97f5cec8a3bcdfa218720a83ce0"></span><a class="reference internal" href="#_CPPv4I0E15ThreadSafeQueue" title="ThreadSafeQueue"><span class="n"><span class="pre">ThreadSafeQueue</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N10WorkerPool4IJobE" title="WorkerPool::IJob"><span class="n"><span class="pre">IJob</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">job_queue_</span></span></span><a class="headerlink" href="#_CPPv4N10WorkerPool10job_queue_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Queue of jobs to execute. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N10WorkerPool8workers_E">
+<span id="_CPPv3N10WorkerPool8workers_E"></span><span id="_CPPv2N10WorkerPool8workers_E"></span><span id="WorkerPool::workers___std::vector:std::thread:"></span><span class="target" id="classWorkerPool_1a486b9386b66909971a7b7f8cae9221fa"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">thread</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">workers_</span></span></span><a class="headerlink" href="#_CPPv4N10WorkerPool8workers_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Worker threads. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N10WorkerPool10stop_pool_E">
+<span id="_CPPv3N10WorkerPool10stop_pool_E"></span><span id="_CPPv2N10WorkerPool10stop_pool_E"></span><span id="WorkerPool::stop_pool___std::atomic:b:"></span><span class="target" id="classWorkerPool_1a479f0e0ec1ca9195bfb748e33fd1589c"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">atomic</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">bool</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">stop_pool_</span></span></span><a class="headerlink" href="#_CPPv4N10WorkerPool10stop_pool_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Flag to stop the pool and workers. </p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N10WorkerPool4IJobE">
+<span id="_CPPv3N10WorkerPool4IJobE"></span><span id="_CPPv2N10WorkerPool4IJobE"></span><span id="WorkerPool::IJob"></span><span class="target" id="classWorkerPool_1_1IJob"></span><span class="k"><span class="pre">interface</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IJob</span></span></span><a class="headerlink" href="#_CPPv4N10WorkerPool4IJobE" title="Link to this definition"></a><br /></dt>
+<dd><p>Interface for a job that can be executed by a worker pool. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classWorkerPool_1_1IJob"><span class="std std-ref"><span class="pre">IJob</span></span></a></code> interface provides a way to define jobs that can be executed by worker threads. </p>
+<p>Subclassed by <a class="reference internal" href="#classWorkerPool_1_1Job"><span class="std std-ref">WorkerPool::Job</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N10WorkerPool4IJobD0Ev">
+<span id="_CPPv3N10WorkerPool4IJobD0Ev"></span><span id="_CPPv2N10WorkerPool4IJobD0Ev"></span><span id="WorkerPool::IJob::~IJob"></span><span class="target" id="classWorkerPool_1_1IJob_1aadbab43f891a4a451615cea1ad18f25e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~IJob</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N10WorkerPool4IJobD0Ev" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK10WorkerPool4IJob7executeEv">
+<span id="_CPPv3NK10WorkerPool4IJob7executeEv"></span><span id="_CPPv2NK10WorkerPool4IJob7executeEv"></span><span id="WorkerPool::IJob::executeC"></span><span class="target" id="classWorkerPool_1_1IJob_1ad2bcc4458eeb136dcdf860ca85a596eb"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">execute</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4NK10WorkerPool4IJob7executeEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Executes the job’s function. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N10WorkerPool3JobE">
+<span id="_CPPv3N10WorkerPool3JobE"></span><span id="_CPPv2N10WorkerPool3JobE"></span><span id="WorkerPool::Job"></span><span class="target" id="classWorkerPool_1_1Job"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Job</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv410WorkerPool" title="WorkerPool"><span class="n"><span class="pre">WorkerPool</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N10WorkerPool4IJobE" title="WorkerPool::IJob"><span class="n"><span class="pre">IJob</span></span></a><a class="headerlink" href="#_CPPv4N10WorkerPool3JobE" title="Link to this definition"></a><br /></dt>
+<dd><p>Represents a job to be executed by the worker pool. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classWorkerPool_1_1Job"><span class="std std-ref"><span class="pre">Job</span></span></a></code> class holds a <code class="docutils literal notranslate"><span class="pre">std::function&lt;void()&gt;</span></code> and encapsulates the job that will be executed by a worker thread. It implements the <code class="docutils literal notranslate"><a class="reference internal" href="#classWorkerPool_1_1IJob"><span class="std std-ref"><span class="pre">IJob</span></span></a></code> interface. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N10WorkerPool3Job3JobENSt8functionIFvvEEE">
+<span id="_CPPv3N10WorkerPool3Job3JobENSt8functionIFvvEEE"></span><span id="_CPPv2N10WorkerPool3Job3JobENSt8functionIFvvEEE"></span><span class="target" id="classWorkerPool_1_1Job_1a9a1495bc84be60bef5b176c6d44fdc04"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Job</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">func</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10WorkerPool3Job3JobENSt8functionIFvvEEE" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs a <a class="reference internal" href="#classWorkerPool_1_1Job"><span class="std std-ref">Job</span></a> with a specific function. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>func</strong> – The function to be executed. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK10WorkerPool3Job7executeEv">
+<span id="_CPPv3NK10WorkerPool3Job7executeEv"></span><span id="_CPPv2NK10WorkerPool3Job7executeEv"></span><span id="WorkerPool::Job::executeC"></span><span class="target" id="classWorkerPool_1_1Job_1a84673ef34e99a6f845306dab614328e4"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">execute</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK10WorkerPool3Job7executeEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Executes the job’s function. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N10WorkerPool3Job5func_E">
+<span id="_CPPv3N10WorkerPool3Job5func_E"></span><span id="_CPPv2N10WorkerPool3Job5func_E"></span><span class="target" id="classWorkerPool_1_1Job_1a4970133fd9276ecd94f42060650897ed"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">func_</span></span></span><a class="headerlink" href="#_CPPv4N10WorkerPool3Job5func_E" title="Link to this definition"></a><br /></dt>
+<dd><p>The function to execute. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv416PersistentWorker">
+<span id="_CPPv316PersistentWorker"></span><span id="_CPPv216PersistentWorker"></span><span id="PersistentWorker"></span><span class="target" id="classPersistentWorker"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PersistentWorker</span></span></span><a class="headerlink" href="#_CPPv416PersistentWorker" title="Link to this definition"></a><br /></dt>
+<dd><p>Manages task names and assigns them to respective worker pools. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classPersistentWorker"><span class="std std-ref"><span class="pre">PersistentWorker</span></span></a></code> class maps each task name to its own worker pool, allowing tasks to be added or removed dynamically. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N16PersistentWorker16PersistentWorkerEv">
+<span id="_CPPv3N16PersistentWorker16PersistentWorkerEv"></span><span id="_CPPv2N16PersistentWorker16PersistentWorkerEv"></span><span id="PersistentWorker::PersistentWorker"></span><span class="target" id="classPersistentWorker_1a19782deb2ff827396362614b4c6efd7d"></span><span class="sig-name descname"><span class="n"><span class="pre">PersistentWorker</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N16PersistentWorker16PersistentWorkerEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructor for <a class="reference internal" href="#classPersistentWorker"><span class="std std-ref">PersistentWorker</span></a>. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N16PersistentWorkerD0Ev">
+<span id="_CPPv3N16PersistentWorkerD0Ev"></span><span id="_CPPv2N16PersistentWorkerD0Ev"></span><span id="PersistentWorker::~PersistentWorker"></span><span class="target" id="classPersistentWorker_1a110227ef192f8fd58fc5402c99d353d3"></span><span class="sig-name descname"><span class="n"><span class="pre">~PersistentWorker</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N16PersistentWorkerD0Ev" title="Link to this definition"></a><br /></dt>
+<dd><p>Destructor for <a class="reference internal" href="#classPersistentWorker"><span class="std std-ref">PersistentWorker</span></a>. </p>
+<p>Ensures that all tasks are cleaned up (although tasks are managed by <a class="reference internal" href="#classWorkerPool"><span class="std std-ref">WorkerPool</span></a>). </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N16PersistentWorker7addTaskERKNSt6stringERKNSt8functionIFvvEEE">
+<span id="_CPPv3N16PersistentWorker7addTaskERKNSt6stringERKNSt8functionIFvvEEE"></span><span id="_CPPv2N16PersistentWorker7addTaskERKNSt6stringERKNSt8functionIFvvEEE"></span><span class="target" id="classPersistentWorker_1ab51d771e8ef73eab485bb3091f60d772"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">addTask</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">jobToExecute</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16PersistentWorker7addTaskERKNSt6stringERKNSt8functionIFvvEEE" title="Link to this definition"></a><br /></dt>
+<dd><p>Adds a new task to the worker’s task pool. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The unique name of the task. </p></li>
+<li><p><strong>jobToExecute</strong> – The function representing the task to be executed. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N16PersistentWorker10removeTaskERKNSt6stringE">
+<span id="_CPPv3N16PersistentWorker10removeTaskERKNSt6stringE"></span><span id="_CPPv2N16PersistentWorker10removeTaskERKNSt6stringE"></span><span id="PersistentWorker::removeTask__ssCR"></span><span class="target" id="classPersistentWorker_1a0556647fac86cf9549291dfa4b317900"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">removeTask</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16PersistentWorker10removeTaskERKNSt6stringE" title="Link to this definition"></a><br /></dt>
+<dd><p>Removes a task from the worker’s task pool. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> – The unique name of the task to remove. </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – if the task is not founded. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N16PersistentWorker12task_queues_E">
+<span id="_CPPv3N16PersistentWorker12task_queues_E"></span><span id="_CPPv2N16PersistentWorker12task_queues_E"></span><span id="PersistentWorker::task_queues___std::unordered_map:ss.WorkerPool:"></span><span class="target" id="classPersistentWorker_1afcd3ac1b6fe0fcdcfe9fb6da312da36a"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv410WorkerPool" title="WorkerPool"><span class="n"><span class="pre">WorkerPool</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">task_queues_</span></span></span><a class="headerlink" href="#_CPPv4N16PersistentWorker12task_queues_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Mapping of task names to worker pools. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="iostream.html" class="btn btn-neutral float-left" title="IOStream" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, pulgamecanica.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IOStream &mdash; libftpp 0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8dde47fa"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Thread" href="thread.html" />
+    <link rel="prev" title="Design Patterns" href="design_patterns.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            libftpp
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Welcome to LIBFTPP - README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_structures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_patterns.html">Design Patterns</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IOStream</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv418ThreadSafeIOStream"><code class="docutils literal notranslate"><span class="pre">ThreadSafeIOStream</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N18ThreadSafeIOStream18ThreadSafeIOStreamEv"><code class="docutils literal notranslate"><span class="pre">ThreadSafeIOStream::ThreadSafeIOStream()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N18ThreadSafeIOStream9setPrefixERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">ThreadSafeIOStream::setPrefix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N18ThreadSafeIOStreamlsEPFRNSt7ostreamERNSt7ostreamEE"><code class="docutils literal notranslate"><span class="pre">ThreadSafeIOStream::operator&lt;&lt;()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4I0EN18ThreadSafeIOStreamlsER18ThreadSafeIOStreamRK1T"><code class="docutils literal notranslate"><span class="pre">ThreadSafeIOStream::operator&lt;&lt;()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4I0EN18ThreadSafeIOStreamrsER18ThreadSafeIOStreamR1T"><code class="docutils literal notranslate"><span class="pre">ThreadSafeIOStream::operator&gt;&gt;()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N18ThreadSafeIOStream13global_mutex_E"><code class="docutils literal notranslate"><span class="pre">ThreadSafeIOStream::global_mutex_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N18ThreadSafeIOStream14thread_buffer_E"><code class="docutils literal notranslate"><span class="pre">ThreadSafeIOStream::thread_buffer_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N18ThreadSafeIOStream14thread_prefix_E"><code class="docutils literal notranslate"><span class="pre">ThreadSafeIOStream::thread_prefix_</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="thread.html">Thread</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">libftpp</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">IOStream</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/iostream.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="iostream">
+<h1>IOStream<a class="headerlink" href="#iostream" title="Link to this heading"></a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv418ThreadSafeIOStream">
+<span id="_CPPv318ThreadSafeIOStream"></span><span id="_CPPv218ThreadSafeIOStream"></span><span id="ThreadSafeIOStream"></span><span class="target" id="classThreadSafeIOStream"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ThreadSafeIOStream</span></span></span><a class="headerlink" href="#_CPPv418ThreadSafeIOStream" title="Link to this definition"></a><br /></dt>
+<dd><p>A thread-safe version of I/O stream. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classThreadSafeIOStream"><span class="std std-ref"><span class="pre">ThreadSafeIOStream</span></span></a></code> class provides thread-safe output capabilities by locking a mutex during output operations. It allows users to set a prefix for output messages, which can help debug and monitor applications with multiple threads.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The stream will only be outputed when the <code class="docutils literal notranslate"><span class="pre">std::endl</span></code> manipulator is founded, indicating that the line ended. </p>
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N18ThreadSafeIOStream18ThreadSafeIOStreamEv">
+<span id="_CPPv3N18ThreadSafeIOStream18ThreadSafeIOStreamEv"></span><span id="_CPPv2N18ThreadSafeIOStream18ThreadSafeIOStreamEv"></span><span id="ThreadSafeIOStream::ThreadSafeIOStream"></span><span class="target" id="classThreadSafeIOStream_1a90cb263df94cf23688f9debab0e73174"></span><span class="sig-name descname"><span class="n"><span class="pre">ThreadSafeIOStream</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N18ThreadSafeIOStream18ThreadSafeIOStreamEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs a <a class="reference internal" href="#classThreadSafeIOStream"><span class="std std-ref">ThreadSafeIOStream</span></a>. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N18ThreadSafeIOStream9setPrefixERKNSt6stringE">
+<span id="_CPPv3N18ThreadSafeIOStream9setPrefixERKNSt6stringE"></span><span id="_CPPv2N18ThreadSafeIOStream9setPrefixERKNSt6stringE"></span><span id="ThreadSafeIOStream::setPrefix__ssCR"></span><span class="target" id="classThreadSafeIOStream_1a385acc8a90b44f3579e93e07d14c2b1d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPrefix</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">prefix</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N18ThreadSafeIOStream9setPrefixERKNSt6stringE" title="Link to this definition"></a><br /></dt>
+<dd><p>Sets the prefix printed in front of each output line. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>prefix</strong> – The prefix string to prepend to the output. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N18ThreadSafeIOStreamlsEPFRNSt7ostreamERNSt7ostreamEE">
+<span id="_CPPv3N18ThreadSafeIOStreamlsEPFRNSt7ostreamERNSt7ostreamEE"></span><span id="_CPPv2N18ThreadSafeIOStreamlsEPFRNSt7ostreamERNSt7ostreamEE"></span><span class="target" id="classThreadSafeIOStream_1a6c14672125638be85b6f3b31c04b2644"></span><a class="reference internal" href="#_CPPv418ThreadSafeIOStream" title="ThreadSafeIOStream"><span class="n"><span class="pre">ThreadSafeIOStream</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">manip</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N18ThreadSafeIOStreamlsEPFRNSt7ostreamERNSt7ostreamEE" title="Link to this definition"></a><br /></dt>
+<dd><p>Handles the <code class="docutils literal notranslate"><span class="pre">std::endl</span></code> manipulator for proper line breaks. </p>
+<p>This function flushes the thread-local buffer to the shared <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> under a mutex lock when <code class="docutils literal notranslate"><span class="pre">std::endl</span></code> is encountered.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>manip</strong> – A pointer to a manipulator function such as <code class="docutils literal notranslate"><span class="pre">std::endl</span></code>. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A reference to <code class="docutils literal notranslate"><a class="reference internal" href="#classThreadSafeIOStream"><span class="std std-ref"><span class="pre">ThreadSafeIOStream</span></span></a></code> for chaining. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN18ThreadSafeIOStreamlsER18ThreadSafeIOStreamRK1T">
+<span id="_CPPv3I0EN18ThreadSafeIOStreamlsERK1T"></span><span id="_CPPv2I0EN18ThreadSafeIOStreamlsERK1T"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classThreadSafeIOStream_1a6ffee3381aad3a4c74fa933e51766f6b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv418ThreadSafeIOStream" title="ThreadSafeIOStream"><span class="n"><span class="pre">ThreadSafeIOStream</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN18ThreadSafeIOStreamlsER18ThreadSafeIOStreamRK1T" title="ThreadSafeIOStream::operator&lt;&lt;::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN18ThreadSafeIOStreamlsER18ThreadSafeIOStreamRK1T" title="Link to this definition"></a><br /></dt>
+<dd><p>Output operator overload to handle various types. </p>
+<p>This function writes to a thread-local buffer and flushes it only when a newline is encountered.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – The type of value to output. </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>value</strong> – The value to output. </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A reference to <code class="docutils literal notranslate"><a class="reference internal" href="#classThreadSafeIOStream"><span class="std std-ref"><span class="pre">ThreadSafeIOStream</span></span></a></code> for chaining. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN18ThreadSafeIOStreamrsER18ThreadSafeIOStreamR1T">
+<span id="_CPPv3I0EN18ThreadSafeIOStreamrsER1T"></span><span id="_CPPv2I0EN18ThreadSafeIOStreamrsER1T"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classThreadSafeIOStream_1aadae4fd2bc76b251c8bf221dfb3db08c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv418ThreadSafeIOStream" title="ThreadSafeIOStream"><span class="n"><span class="pre">ThreadSafeIOStream</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN18ThreadSafeIOStreamrsER18ThreadSafeIOStreamR1T" title="ThreadSafeIOStream::operator&gt;&gt;::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN18ThreadSafeIOStreamrsER18ThreadSafeIOStreamR1T" title="Link to this definition"></a><br /></dt>
+<dd><p>Input operator overload to handle various types. </p>
+<p>This function locks a mutex to ensure thread-safe input operations. The prefix will be appended before the input (not always a <code class="docutils literal notranslate"><span class="pre">line</span></code>)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – The type of value to read. </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>value</strong> – The variable to store the input. </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A reference to <code class="docutils literal notranslate"><a class="reference internal" href="#classThreadSafeIOStream"><span class="std std-ref"><span class="pre">ThreadSafeIOStream</span></span></a></code> for chaining. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N18ThreadSafeIOStream13global_mutex_E">
+<span id="_CPPv3N18ThreadSafeIOStream13global_mutex_E"></span><span id="_CPPv2N18ThreadSafeIOStream13global_mutex_E"></span><span id="ThreadSafeIOStream::global_mutex___std::mutex"></span><span class="target" id="classThreadSafeIOStream_1a05005c8b288662e89bf9b6811bf72fe8"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mutex</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">global_mutex_</span></span></span><a class="headerlink" href="#_CPPv4N18ThreadSafeIOStream13global_mutex_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Mutex to ensure thread-safe access to std::cout. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-static-attributes">Private Static Attributes</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N18ThreadSafeIOStream14thread_buffer_E">
+<span id="_CPPv3N18ThreadSafeIOStream14thread_buffer_E"></span><span id="_CPPv2N18ThreadSafeIOStream14thread_buffer_E"></span><span id="ThreadSafeIOStream::thread_buffer___std::ostringstream"></span><span class="target" id="classThreadSafeIOStream_1ab8884bf29ef91ebc3ec5d2478f3b061e"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">thread_local</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostringstream</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">thread_buffer_</span></span></span><a class="headerlink" href="#_CPPv4N18ThreadSafeIOStream14thread_buffer_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Thread-local buffer for each thread. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N18ThreadSafeIOStream14thread_prefix_E">
+<span id="_CPPv3N18ThreadSafeIOStream14thread_prefix_E"></span><span id="_CPPv2N18ThreadSafeIOStream14thread_prefix_E"></span><span id="ThreadSafeIOStream::thread_prefix___ss"></span><span class="target" id="classThreadSafeIOStream_1a49851ec6fee620c9d1bf05c764d9a82e"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">thread_local</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">thread_prefix_</span></span></span><a class="headerlink" href="#_CPPv4N18ThreadSafeIOStream14thread_prefix_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Thread-local prefix for each thread. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="design_patterns.html" class="btn btn-neutral float-left" title="Design Patterns" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="thread.html" class="btn btn-neutral float-right" title="Thread" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, pulgamecanica.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
