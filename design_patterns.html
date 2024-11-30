@@ -44,9 +44,9 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Index:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="readme.html">Welcome to LIBFTPP - README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Welcome to libftpp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_structures.html">Data Structures</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Design Patterns</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv47Memento"><code class="docutils literal notranslate"><span class="pre">Memento</span></code></a><ul>
@@ -58,9 +58,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N7Memento17_loadFromSnapshotERN7Memento8SnapshotE"><code class="docutils literal notranslate"><span class="pre">Memento::_loadFromSnapshot()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv4I0E8Observer"><code class="docutils literal notranslate"><span class="pre">Observer</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N8Observer9subscribeERK6TEventRKNSt8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">Observer::subscribe()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N8Observer6notifyERK6TEvent"><code class="docutils literal notranslate"><span class="pre">Observer::notify()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4I0DpE8Observer"><code class="docutils literal notranslate"><span class="pre">Observer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N8Observer9subscribeERK6TEventRKNSt8functionIFvDp5TArgsEEE"><code class="docutils literal notranslate"><span class="pre">Observer::subscribe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N8Observer6notifyERK6TEventDp5TArgs"><code class="docutils literal notranslate"><span class="pre">Observer::notify()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N8Observer10event_map_E"><code class="docutils literal notranslate"><span class="pre">Observer::event_map_</span></code></a></li>
 </ul>
 </li>
@@ -93,6 +93,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="iostream.html">IOStream</a></li>
 <li class="toctree-l1"><a class="reference internal" href="thread.html">Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network.html">Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathematics.html">Mathematics</a></li>
 </ul>
 
         </div>
@@ -232,20 +234,23 @@
 </dd></dl>
 
 <dl class="cpp class">
-<dt class="sig sig-object cpp" id="_CPPv4I0E8Observer">
-<span id="_CPPv3I0E8Observer"></span><span id="_CPPv2I0E8Observer"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TEvent</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classObserver"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Observer</span></span></span><a class="headerlink" href="#_CPPv4I0E8Observer" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4I0DpE8Observer">
+<span id="_CPPv3I0DpE8Observer"></span><span id="_CPPv2I0DpE8Observer"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TEvent</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="sig-name descname"><span class="n"><span class="pre">TArgs</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classObserver"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Observer</span></span></span><a class="headerlink" href="#_CPPv4I0DpE8Observer" title="Link to this definition"></a><br /></dt>
 <dd><p>A templated <a class="reference internal" href="#classObserver"><span class="std std-ref">Observer</span></a> class for subscribing to and notifying events. </p>
 <p>This class implements the <a class="reference internal" href="#classObserver"><span class="std std-ref">Observer</span></a> design pattern. It allows users to subscribe to specific events with lambda functions, and it notifies all subscribers when an event is triggered.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>TEvent</strong> – The type of event that will be observed. </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TEvent</strong> – The type of event that will be observed. </p></li>
+<li><p><strong>TArgs</strong> – Variadic template for the types of arguments passed to the callbacks. </p></li>
+</ul>
 </dd>
 </dl>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N8Observer9subscribeERK6TEventRKNSt8functionIFvvEEE">
-<span id="_CPPv3N8Observer9subscribeERK6TEventRKNSt8functionIFvvEEE"></span><span id="_CPPv2N8Observer9subscribeERK6TEventRKNSt8functionIFvvEEE"></span><span class="target" id="classObserver_1a68e3f8bd3188c940893d6aeb0b415f0c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">subscribe</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8Observer" title="Observer::TEvent"><span class="n"><span class="pre">TEvent</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">event</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">lambda</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Observer9subscribeERK6TEventRKNSt8functionIFvvEEE" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N8Observer9subscribeERK6TEventRKNSt8functionIFvDp5TArgsEEE">
+<span id="_CPPv3N8Observer9subscribeERK6TEventRKNSt8functionIFvDp5TArgsEEE"></span><span id="_CPPv2N8Observer9subscribeERK6TEventRKNSt8functionIFvDp5TArgsEEE"></span><span class="target" id="classObserver_1a2aebe217a531c33623bba3ce1f7bdf48"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">subscribe</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0DpE8Observer" title="Observer::TEvent"><span class="n"><span class="pre">TEvent</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">event</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4I0DpE8Observer" title="Observer::TArgs"><span class="n"><span class="pre">TArgs</span></span></a><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">lambda</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Observer9subscribeERK6TEventRKNSt8functionIFvDp5TArgsEEE" title="Link to this definition"></a><br /></dt>
 <dd><p>Subscribe a lambda function to an event. </p>
 <p>This method allows a user to subscribe a lambda function to a specific event. The lambda will be called when the event is triggered via the <code class="docutils literal notranslate"><span class="pre">notify</span></code> method.</p>
 <dl class="field-list simple">
@@ -259,8 +264,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N8Observer6notifyERK6TEvent">
-<span id="_CPPv3N8Observer6notifyERK6TEvent"></span><span id="_CPPv2N8Observer6notifyERK6TEvent"></span><span id="Observer::notify__TEventCR"></span><span class="target" id="classObserver_1afd0eb01458d6afdcdc7bdaf2e9337e69"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">notify</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8Observer" title="Observer::TEvent"><span class="n"><span class="pre">TEvent</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Observer6notifyERK6TEvent" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N8Observer6notifyERK6TEventDp5TArgs">
+<span id="_CPPv3N8Observer6notifyERK6TEventDp5TArgs"></span><span id="_CPPv2N8Observer6notifyERK6TEventDp5TArgs"></span><span id="Observer::notify__TEventCR.TArgsDp"></span><span class="target" id="classObserver_1a748c0cb005954cd2274c963e9d5718bb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">notify</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0DpE8Observer" title="Observer::TEvent"><span class="n"><span class="pre">TEvent</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">event</span></span>, <a class="reference internal" href="#_CPPv4I0DpE8Observer" title="Observer::TArgs"><span class="n"><span class="pre">TArgs</span></span></a><span class="p"><span class="pre">...</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">args</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Observer6notifyERK6TEventDp5TArgs" title="Link to this definition"></a><br /></dt>
 <dd><p>Notify all subscribers of a specific event. </p>
 <p>This method notifies all subscribers that are subscribed to the provided event. It executes all lambdas that were subscribed to the event.</p>
 <dl class="field-list simple">
@@ -275,8 +280,9 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N8Observer10event_map_E">
-<span id="_CPPv3N8Observer10event_map_E"></span><span id="_CPPv2N8Observer10event_map_E"></span><span class="target" id="classObserver_1a83d0c79a0ed5c979c4d4381d1e72d593"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E8Observer" title="Observer::TEvent"><span class="n"><span class="pre">TEvent</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">event_map_</span></span></span><a class="headerlink" href="#_CPPv4N8Observer10event_map_E" title="Link to this definition"></a><br /></dt>
-<dd></dd></dl>
+<span id="_CPPv3N8Observer10event_map_E"></span><span id="_CPPv2N8Observer10event_map_E"></span><span class="target" id="classObserver_1a9d9cf6bdf56ea6d291377016c774efc1"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0DpE8Observer" title="Observer::TEvent"><span class="n"><span class="pre">TEvent</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4I0DpE8Observer" title="Observer::TArgs"><span class="n"><span class="pre">TArgs</span></span></a><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">event_map_</span></span></span><a class="headerlink" href="#_CPPv4N8Observer10event_map_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Map of events to lambdas. </p>
+</dd></dl>
 
 </div>
 </dd></dl>

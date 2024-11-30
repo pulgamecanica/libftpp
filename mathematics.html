@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mathematics &mdash; libftpp 0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8dde47fa"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Network" href="network.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            libftpp
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Index:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">Welcome to libftpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_structures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_patterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iostream.html">IOStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thread.html">Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network.html">Network</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mathematics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4I0E8IVector2"><code class="docutils literal notranslate"><span class="pre">IVector2</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N8IVector28IVector2ERK5TTypeRK5TType"><code class="docutils literal notranslate"><span class="pre">IVector2::IVector2()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector2plERK8IVector2"><code class="docutils literal notranslate"><span class="pre">IVector2::operator+()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector2miERK8IVector2"><code class="docutils literal notranslate"><span class="pre">IVector2::operator-()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector2mlERK5TType"><code class="docutils literal notranslate"><span class="pre">IVector2::operator*()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector2mlERK8IVector2"><code class="docutils literal notranslate"><span class="pre">IVector2::operator*()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector2dvERK5TType"><code class="docutils literal notranslate"><span class="pre">IVector2::operator/()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector2dvERK8IVector2"><code class="docutils literal notranslate"><span class="pre">IVector2::operator/()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector2eqERK8IVector2"><code class="docutils literal notranslate"><span class="pre">IVector2::operator==()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector2neERK8IVector2"><code class="docutils literal notranslate"><span class="pre">IVector2::operator!=()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector26lengthEv"><code class="docutils literal notranslate"><span class="pre">IVector2::length()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector29normalizeEv"><code class="docutils literal notranslate"><span class="pre">IVector2::normalize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector23dotERK8IVector2"><code class="docutils literal notranslate"><span class="pre">IVector2::dot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector25crossEv"><code class="docutils literal notranslate"><span class="pre">IVector2::cross()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector25crossERK8IVector2"><code class="docutils literal notranslate"><span class="pre">IVector2::cross()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N8IVector21xE"><code class="docutils literal notranslate"><span class="pre">IVector2::x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N8IVector21yE"><code class="docutils literal notranslate"><span class="pre">IVector2::y</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4I0E8IVector3"><code class="docutils literal notranslate"><span class="pre">IVector3</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N8IVector38IVector3ERK5TTypeRK5TTypeRK5TType"><code class="docutils literal notranslate"><span class="pre">IVector3::IVector3()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector3plERK8IVector3"><code class="docutils literal notranslate"><span class="pre">IVector3::operator+()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector3miERK8IVector3"><code class="docutils literal notranslate"><span class="pre">IVector3::operator-()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector3mlERK5TType"><code class="docutils literal notranslate"><span class="pre">IVector3::operator*()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector3mlERK8IVector3"><code class="docutils literal notranslate"><span class="pre">IVector3::operator*()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector3dvERK5TType"><code class="docutils literal notranslate"><span class="pre">IVector3::operator/()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector3dvERK8IVector3"><code class="docutils literal notranslate"><span class="pre">IVector3::operator/()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector3eqERK8IVector3"><code class="docutils literal notranslate"><span class="pre">IVector3::operator==()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector3neERK8IVector3"><code class="docutils literal notranslate"><span class="pre">IVector3::operator!=()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector36lengthEv"><code class="docutils literal notranslate"><span class="pre">IVector3::length()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector39normalizeEv"><code class="docutils literal notranslate"><span class="pre">IVector3::normalize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector33dotERK8IVector3"><code class="docutils literal notranslate"><span class="pre">IVector3::dot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector35crossEv"><code class="docutils literal notranslate"><span class="pre">IVector3::cross()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK8IVector35crossERK8IVector3"><code class="docutils literal notranslate"><span class="pre">IVector3::cross()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N8IVector31xE"><code class="docutils literal notranslate"><span class="pre">IVector3::x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N8IVector31yE"><code class="docutils literal notranslate"><span class="pre">IVector3::y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N8IVector31zE"><code class="docutils literal notranslate"><span class="pre">IVector3::z</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">libftpp</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Mathematics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/mathematics.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mathematics">
+<h1>Mathematics<a class="headerlink" href="#mathematics" title="Link to this heading"></a></h1>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4I0E8IVector2">
+<span id="_CPPv3I0E8IVector2"></span><span id="_CPPv2I0E8IVector2"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TType</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structIVector2"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IVector2</span></span></span><a class="headerlink" href="#_CPPv4I0E8IVector2" title="Link to this definition"></a><br /></dt>
+<dd><p>Represents a 2D vector with templated type. </p>
+<p>Provides various operations like addition, subtraction, multiplication, and division, as well as utility methods for vector normalization, dot product, and cross product.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TType</strong> – The type of the vector’s components (e.g., int, float, double). </p>
+</dd>
+</dl>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8IVector28IVector2ERK5TTypeRK5TType">
+<span id="_CPPv3N8IVector28IVector2ERK5TTypeRK5TType"></span><span id="_CPPv2N8IVector28IVector2ERK5TTypeRK5TType"></span><span id="IVector2::IVector2__TTypeCR.TTypeCR"></span><span class="target" id="structIVector2_1ab5b45ac1f15f9451538b6901c0109599"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IVector2</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">x</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">y</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8IVector28IVector2ERK5TTypeRK5TType" title="Link to this definition"></a><br /></dt>
+<dd><p>Vector2 constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – TType value representing <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><strong>y</strong> – TType value representing <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector2plERK8IVector2">
+<span id="_CPPv3NK8IVector2plERK8IVector2"></span><span id="_CPPv2NK8IVector2plERK8IVector2"></span><span id="IVector2::add-operator__IVector2CRC"></span><span class="target" id="structIVector2_1acc74e684cd0b0cf45128ca715bec0e26"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2"><span class="n"><span class="pre">IVector2</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2"><span class="n"><span class="pre">IVector2</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector2plERK8IVector2" title="Link to this definition"></a><br /></dt>
+<dd><p>Adds this vector to another vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The other vector to add. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new vector representing the result of the addition. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector2miERK8IVector2">
+<span id="_CPPv3NK8IVector2miERK8IVector2"></span><span id="_CPPv2NK8IVector2miERK8IVector2"></span><span id="IVector2::sub-operator__IVector2CRC"></span><span class="target" id="structIVector2_1a6239694420d2b24c2f8273272c235c13"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2"><span class="n"><span class="pre">IVector2</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2"><span class="n"><span class="pre">IVector2</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector2miERK8IVector2" title="Link to this definition"></a><br /></dt>
+<dd><p>Subtracts another vector from this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The other vector to subtract. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new vector representing the result of the subtraction. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector2mlERK5TType">
+<span id="_CPPv3NK8IVector2mlERK5TType"></span><span id="_CPPv2NK8IVector2mlERK5TType"></span><span id="IVector2::mul-operator__TTypeCRC"></span><span class="target" id="structIVector2_1af0795cc53ade5b239439f1165a704c88"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2"><span class="n"><span class="pre">IVector2</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">scalar</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector2mlERK5TType" title="Link to this definition"></a><br /></dt>
+<dd><p>Multiplies this vector by a scalar value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scalar</strong> – The scalar to multiply by. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new vector representing the result of the multiplication. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector2mlERK8IVector2">
+<span id="_CPPv3NK8IVector2mlERK8IVector2"></span><span id="_CPPv2NK8IVector2mlERK8IVector2"></span><span id="IVector2::mul-operator__IVector2CRC"></span><span class="target" id="structIVector2_1a4a15f2eb7256e6a192aea4a28db91e1c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2"><span class="n"><span class="pre">IVector2</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2"><span class="n"><span class="pre">IVector2</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector2mlERK8IVector2" title="Link to this definition"></a><br /></dt>
+<dd><p>Multiplies this vector by another vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The other vector to multiply. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new vector representing the result of the multiplication. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector2dvERK5TType">
+<span id="_CPPv3NK8IVector2dvERK5TType"></span><span id="_CPPv2NK8IVector2dvERK5TType"></span><span id="IVector2::div-operator__TTypeCRC"></span><span class="target" id="structIVector2_1a5d7b3872c05ff9d7cdf57ebe3bb2adf7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2"><span class="n"><span class="pre">IVector2</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">/</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">scalar</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector2dvERK5TType" title="Link to this definition"></a><br /></dt>
+<dd><p>Divides this vector by a scalar value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scalar</strong> – The scalar to divide by. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new vector representing the result of the division. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector2dvERK8IVector2">
+<span id="_CPPv3NK8IVector2dvERK8IVector2"></span><span id="_CPPv2NK8IVector2dvERK8IVector2"></span><span id="IVector2::div-operator__IVector2CRC"></span><span class="target" id="structIVector2_1a51d1c928b4440c38f7d1f5c3faac65ff"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2"><span class="n"><span class="pre">IVector2</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">/</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2"><span class="n"><span class="pre">IVector2</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector2dvERK8IVector2" title="Link to this definition"></a><br /></dt>
+<dd><p>Divides this vector by another vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scalar</strong> – The scalar to divide by. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new vector representing the result of the division. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector2eqERK8IVector2">
+<span id="_CPPv3NK8IVector2eqERK8IVector2"></span><span id="_CPPv2NK8IVector2eqERK8IVector2"></span><span id="IVector2::eq-operator__IVector2CRC"></span><span class="target" id="structIVector2_1aee986dd92c27fd504a7149497e677585"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">==</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2"><span class="n"><span class="pre">IVector2</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector2eqERK8IVector2" title="Link to this definition"></a><br /></dt>
+<dd><p>Compares this vector with another vector for equality. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The other vector to compare with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the vectors are equal, false otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector2neERK8IVector2">
+<span id="_CPPv3NK8IVector2neERK8IVector2"></span><span id="_CPPv2NK8IVector2neERK8IVector2"></span><span id="IVector2::neq-operator__IVector2CRC"></span><span class="target" id="structIVector2_1ac3f421b1f7f763b4416c5af961d729df"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">!=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2"><span class="n"><span class="pre">IVector2</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector2neERK8IVector2" title="Link to this definition"></a><br /></dt>
+<dd><p>Compares this vector with another vector for inequality. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The other vector to compare with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the vectors are not equal, false otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector26lengthEv">
+<span id="_CPPv3NK8IVector26lengthEv"></span><span id="_CPPv2NK8IVector26lengthEv"></span><span id="IVector2::lengthC"></span><span class="target" id="structIVector2_1a97c0506a6134014bf5547b519d3a2a39"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">length</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector26lengthEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Computes the length (norm) of the vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The length of the vector as a float. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector29normalizeEv">
+<span id="_CPPv3NK8IVector29normalizeEv"></span><span id="_CPPv2NK8IVector29normalizeEv"></span><span id="IVector2::normalizeC"></span><span class="target" id="structIVector2_1aeb16174052f035b444610092960762e4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2"><span class="n"><span class="pre">IVector2</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">normalize</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector29normalizeEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Normalizes the vector (makes its length equal to 1). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A new vector representing the normalized vector. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector23dotERK8IVector2">
+<span id="_CPPv3NK8IVector23dotERK8IVector2"></span><span id="_CPPv2NK8IVector23dotERK8IVector2"></span><span id="IVector2::dot__IVector2CRC"></span><span class="target" id="structIVector2_1abc9154201e2473f58c1690f41570f4b7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dot</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2"><span class="n"><span class="pre">IVector2</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector23dotERK8IVector2" title="Link to this definition"></a><br /></dt>
+<dd><p>Computes the dot product of this vector with another vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The other vector to compute the dot product with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The dot product as a float. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector25crossEv">
+<span id="_CPPv3NK8IVector25crossEv"></span><span id="_CPPv2NK8IVector25crossEv"></span><span id="IVector2::crossC"></span><span class="target" id="structIVector2_1aab5a5d1a75fee5b6e8e93bce1920ef34"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2"><span class="n"><span class="pre">IVector2</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cross</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector25crossEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Computes the cross product of this vector itself. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Two parallel vectors will always return zero cross product. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Zero </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector25crossERK8IVector2">
+<span id="_CPPv3NK8IVector25crossERK8IVector2"></span><span id="_CPPv2NK8IVector25crossERK8IVector2"></span><span id="IVector2::cross__IVector2CRC"></span><span class="target" id="structIVector2_1a3ca8aace948fef0fa8d7c935ef707eec"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cross</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2"><span class="n"><span class="pre">IVector2</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector25crossERK8IVector2" title="Link to this definition"></a><br /></dt>
+<dd><p>Computes the cross product of this vector with another vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The other vector to compute the cross product with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The cross product as a float. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8IVector21xE">
+<span id="_CPPv3N8IVector21xE"></span><span id="_CPPv2N8IVector21xE"></span><span id="IVector2::x__TTypeC"></span><span class="target" id="structIVector2_1a3b99d8238c9582bd0160cd9d98e9c7eb"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">x</span></span></span><a class="headerlink" href="#_CPPv4N8IVector21xE" title="Link to this definition"></a><br /></dt>
+<dd><p>First coordinate of the vector. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8IVector21yE">
+<span id="_CPPv3N8IVector21yE"></span><span id="_CPPv2N8IVector21yE"></span><span id="IVector2::y__TTypeC"></span><span class="target" id="structIVector2_1ae38ead6d0e6a1bc5abf43927d90ebc96"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector2" title="IVector2::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">y</span></span></span><a class="headerlink" href="#_CPPv4N8IVector21yE" title="Link to this definition"></a><br /></dt>
+<dd><p>Second coordinate of the vector. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4I0E8IVector3">
+<span id="_CPPv3I0E8IVector3"></span><span id="_CPPv2I0E8IVector3"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TType</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structIVector3"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IVector3</span></span></span><a class="headerlink" href="#_CPPv4I0E8IVector3" title="Link to this definition"></a><br /></dt>
+<dd><p>Represents a 3D vector with templated type. </p>
+<p>Provides various operations like addition, subtraction, multiplication, and division, as well as utility methods for vector normalization, dot product, and cross product.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TType</strong> – The type of the vector’s components (e.g., int, float, double). </p>
+</dd>
+</dl>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8IVector38IVector3ERK5TTypeRK5TTypeRK5TType">
+<span id="_CPPv3N8IVector38IVector3ERK5TTypeRK5TTypeRK5TType"></span><span id="_CPPv2N8IVector38IVector3ERK5TTypeRK5TTypeRK5TType"></span><span id="IVector3::IVector3__TTypeCR.TTypeCR.TTypeCR"></span><span class="target" id="structIVector3_1a04365c6a555a46dd5978c3a27248ed03"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IVector3</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">x</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">y</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">z</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8IVector38IVector3ERK5TTypeRK5TTypeRK5TType" title="Link to this definition"></a><br /></dt>
+<dd><p>Vector2 constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – TType value representing <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><strong>y</strong> – TType value representing <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+<li><p><strong>z</strong> – TType value representing <code class="docutils literal notranslate"><span class="pre">z</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector3plERK8IVector3">
+<span id="_CPPv3NK8IVector3plERK8IVector3"></span><span id="_CPPv2NK8IVector3plERK8IVector3"></span><span id="IVector3::add-operator__IVector3CRC"></span><span class="target" id="structIVector3_1a118d84763fd7c6213ae8be44218f97d3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3"><span class="n"><span class="pre">IVector3</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3"><span class="n"><span class="pre">IVector3</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector3plERK8IVector3" title="Link to this definition"></a><br /></dt>
+<dd><p>Adds this vector to another vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The other vector to add. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new vector representing the result of the addition. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector3miERK8IVector3">
+<span id="_CPPv3NK8IVector3miERK8IVector3"></span><span id="_CPPv2NK8IVector3miERK8IVector3"></span><span id="IVector3::sub-operator__IVector3CRC"></span><span class="target" id="structIVector3_1a23d51170b58273be1317b22ca99104cf"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3"><span class="n"><span class="pre">IVector3</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3"><span class="n"><span class="pre">IVector3</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector3miERK8IVector3" title="Link to this definition"></a><br /></dt>
+<dd><p>Subtracts another vector from this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The other vector to subtract. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new vector representing the result of the subtraction. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector3mlERK5TType">
+<span id="_CPPv3NK8IVector3mlERK5TType"></span><span id="_CPPv2NK8IVector3mlERK5TType"></span><span id="IVector3::mul-operator__TTypeCRC"></span><span class="target" id="structIVector3_1a596b9b76b332083e48bcc2569ba08e6e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3"><span class="n"><span class="pre">IVector3</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">scalar</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector3mlERK5TType" title="Link to this definition"></a><br /></dt>
+<dd><p>Multiplies this vector by a scalar value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scalar</strong> – The scalar to multiply by. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new vector representing the result of the multiplication. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector3mlERK8IVector3">
+<span id="_CPPv3NK8IVector3mlERK8IVector3"></span><span id="_CPPv2NK8IVector3mlERK8IVector3"></span><span id="IVector3::mul-operator__IVector3CRC"></span><span class="target" id="structIVector3_1a46c465fabb47d60d384d13ab62f0c3e2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3"><span class="n"><span class="pre">IVector3</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3"><span class="n"><span class="pre">IVector3</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector3mlERK8IVector3" title="Link to this definition"></a><br /></dt>
+<dd><p>Multiplies this vector by another vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The vector to multiply by. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new vector representing the result of the multiplication. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector3dvERK5TType">
+<span id="_CPPv3NK8IVector3dvERK5TType"></span><span id="_CPPv2NK8IVector3dvERK5TType"></span><span id="IVector3::div-operator__TTypeCRC"></span><span class="target" id="structIVector3_1a111a274a3582b72e4fc42350c0d39376"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3"><span class="n"><span class="pre">IVector3</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">/</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">scalar</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector3dvERK5TType" title="Link to this definition"></a><br /></dt>
+<dd><p>Divides this vector by a scalar value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scalar</strong> – The scalar to divide by. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new vector representing the result of the division. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector3dvERK8IVector3">
+<span id="_CPPv3NK8IVector3dvERK8IVector3"></span><span id="_CPPv2NK8IVector3dvERK8IVector3"></span><span id="IVector3::div-operator__IVector3CRC"></span><span class="target" id="structIVector3_1a7337eb11284e2c6681954d087656f853"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3"><span class="n"><span class="pre">IVector3</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">/</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3"><span class="n"><span class="pre">IVector3</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector3dvERK8IVector3" title="Link to this definition"></a><br /></dt>
+<dd><p>Divides this vector by anoter vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The vector to divide by. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new vector representing the result of the division. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector3eqERK8IVector3">
+<span id="_CPPv3NK8IVector3eqERK8IVector3"></span><span id="_CPPv2NK8IVector3eqERK8IVector3"></span><span id="IVector3::eq-operator__IVector3CRC"></span><span class="target" id="structIVector3_1a95a8421875d15bbdec8c530d135deade"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">==</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3"><span class="n"><span class="pre">IVector3</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector3eqERK8IVector3" title="Link to this definition"></a><br /></dt>
+<dd><p>Compares this vector with another vector for equality. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The other vector to compare with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the vectors are equal, false otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector3neERK8IVector3">
+<span id="_CPPv3NK8IVector3neERK8IVector3"></span><span id="_CPPv2NK8IVector3neERK8IVector3"></span><span id="IVector3::neq-operator__IVector3CRC"></span><span class="target" id="structIVector3_1ad1458f957e256989a91bc9ef0015f557"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">!=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3"><span class="n"><span class="pre">IVector3</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector3neERK8IVector3" title="Link to this definition"></a><br /></dt>
+<dd><p>Compares this vector with another vector for inequality. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The other vector to compare with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the vectors are not equal, false otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector36lengthEv">
+<span id="_CPPv3NK8IVector36lengthEv"></span><span id="_CPPv2NK8IVector36lengthEv"></span><span id="IVector3::lengthC"></span><span class="target" id="structIVector3_1a2732d086bbef53c9f5511745f62633b3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">length</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector36lengthEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Computes the length (norm) of the vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The length of the vector as a float. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector39normalizeEv">
+<span id="_CPPv3NK8IVector39normalizeEv"></span><span id="_CPPv2NK8IVector39normalizeEv"></span><span id="IVector3::normalizeC"></span><span class="target" id="structIVector3_1acb3cb01190903d98e03f7e399c0da993"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3"><span class="n"><span class="pre">IVector3</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">normalize</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector39normalizeEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Normalizes the vector (makes its length equal to 1). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A new vector representing the normalized vector. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector33dotERK8IVector3">
+<span id="_CPPv3NK8IVector33dotERK8IVector3"></span><span id="_CPPv2NK8IVector33dotERK8IVector3"></span><span id="IVector3::dot__IVector3CRC"></span><span class="target" id="structIVector3_1a1dc06a5fd9b5e36e321e8ee2a10a251b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dot</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3"><span class="n"><span class="pre">IVector3</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector33dotERK8IVector3" title="Link to this definition"></a><br /></dt>
+<dd><p>Computes the dot product of this vector with another vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The other vector to compute the dot product with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The dot product as a float. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector35crossEv">
+<span id="_CPPv3NK8IVector35crossEv"></span><span id="_CPPv2NK8IVector35crossEv"></span><span id="IVector3::crossC"></span><span class="target" id="structIVector3_1aff54c28aed00728f1e09375d74564908"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3"><span class="n"><span class="pre">IVector3</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cross</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector35crossEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Computes the cross product of this vector with itself. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Two parallel vectors will always return zero cross product. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A new vector representing the cross product. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8IVector35crossERK8IVector3">
+<span id="_CPPv3NK8IVector35crossERK8IVector3"></span><span id="_CPPv2NK8IVector35crossERK8IVector3"></span><span id="IVector3::cross__IVector3CRC"></span><span class="target" id="structIVector3_1a722844aac123f8204fb259a7624150e9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3"><span class="n"><span class="pre">IVector3</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cross</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3"><span class="n"><span class="pre">IVector3</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8IVector35crossERK8IVector3" title="Link to this definition"></a><br /></dt>
+<dd><p>Computes the cross product of this vector with another vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> – The other vector to compute the cross product with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new vector representing the cross product. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8IVector31xE">
+<span id="_CPPv3N8IVector31xE"></span><span id="_CPPv2N8IVector31xE"></span><span id="IVector3::x__TType"></span><span class="target" id="structIVector3_1abfd8e65d547e7bed2451ef0764f3247f"></span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">x</span></span></span><a class="headerlink" href="#_CPPv4N8IVector31xE" title="Link to this definition"></a><br /></dt>
+<dd><p>First coordinate of the vector. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8IVector31yE">
+<span id="_CPPv3N8IVector31yE"></span><span id="_CPPv2N8IVector31yE"></span><span id="IVector3::y__TType"></span><span class="target" id="structIVector3_1aa315a21fab3cc502ecb4b901e04666c1"></span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">y</span></span></span><a class="headerlink" href="#_CPPv4N8IVector31yE" title="Link to this definition"></a><br /></dt>
+<dd><p>Second coordinate of the vector. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8IVector31zE">
+<span id="_CPPv3N8IVector31zE"></span><span id="_CPPv2N8IVector31zE"></span><span id="IVector3::z__TType"></span><span class="target" id="structIVector3_1a01d54cb3d4f73b5038cb50ba2d4f6670"></span><a class="reference internal" href="#_CPPv4I0E8IVector3" title="IVector3::TType"><span class="n"><span class="pre">TType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">z</span></span></span><a class="headerlink" href="#_CPPv4N8IVector31zE" title="Link to this definition"></a><br /></dt>
+<dd><p>Third coordinate of the vector. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="network.html" class="btn btn-neutral float-left" title="Network" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, pulgamecanica.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

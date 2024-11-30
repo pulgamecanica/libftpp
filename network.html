@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Network &mdash; libftpp 0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8dde47fa"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Mathematics" href="mathematics.html" />
+    <link rel="prev" title="Thread" href="thread.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            libftpp
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Index:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">Welcome to libftpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_structures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_patterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iostream.html">IOStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thread.html">Thread</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Network</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv47Message"><code class="docutils literal notranslate"><span class="pre">Message</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N7Message4TypeE"><code class="docutils literal notranslate"><span class="pre">Message::Type</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Message4Type3IntE"><code class="docutils literal notranslate"><span class="pre">Message::Type::Int</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Message4Type6StringE"><code class="docutils literal notranslate"><span class="pre">Message::Type::String</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N7Message4Type6DoubleE"><code class="docutils literal notranslate"><span class="pre">Message::Type::Double</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N7Message7MessageEi"><code class="docutils literal notranslate"><span class="pre">Message::Message()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N7MessagelsERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">Message::operator&lt;&lt;()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4I0EN7MessagelsER7MessageRK1T"><code class="docutils literal notranslate"><span class="pre">Message::operator&lt;&lt;()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK7MessagersERNSt6stringE"><code class="docutils literal notranslate"><span class="pre">Message::operator&gt;&gt;()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4I0ENK7MessagersE7MessageR1T"><code class="docutils literal notranslate"><span class="pre">Message::operator&gt;&gt;()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK7Message4typeEv"><code class="docutils literal notranslate"><span class="pre">Message::type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK7Message17getSerializedDataEv"><code class="docutils literal notranslate"><span class="pre">Message::getSerializedData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N7Message19deserializeMessagesERKNSt6vectorI7uint8_tEE"><code class="docutils literal notranslate"><span class="pre">Message::deserializeMessages()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N7Message13message_type_E"><code class="docutils literal notranslate"><span class="pre">Message::message_type_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N7Message7buffer_E"><code class="docutils literal notranslate"><span class="pre">Message::buffer_</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv46Client"><code class="docutils literal notranslate"><span class="pre">Client</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Client6ClientEv"><code class="docutils literal notranslate"><span class="pre">Client::Client()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6ClientD0Ev"><code class="docutils literal notranslate"><span class="pre">Client::~Client()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Client7connectERKNSt6stringERK6size_t"><code class="docutils literal notranslate"><span class="pre">Client::connect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Client10disconnectEv"><code class="docutils literal notranslate"><span class="pre">Client::disconnect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Client12defineActionERKN7Message4TypeERKNSt8functionIFvRK7MessageEEE"><code class="docutils literal notranslate"><span class="pre">Client::defineAction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Client12defineActionEKiRKNSt8functionIFvRK7MessageEEE"><code class="docutils literal notranslate"><span class="pre">Client::defineAction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Client4sendERK7Message"><code class="docutils literal notranslate"><span class="pre">Client::send()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Client6updateEv"><code class="docutils literal notranslate"><span class="pre">Client::update()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Client8sock_fd_E"><code class="docutils literal notranslate"><span class="pre">Client::sock_fd_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Client13is_connected_E"><code class="docutils literal notranslate"><span class="pre">Client::is_connected_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Client17message_observer_E"><code class="docutils literal notranslate"><span class="pre">Client::message_observer_</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv46Server"><code class="docutils literal notranslate"><span class="pre">Server</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server6ServerEv"><code class="docutils literal notranslate"><span class="pre">Server::Server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6ServerD0Ev"><code class="docutils literal notranslate"><span class="pre">Server::~Server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server5startERK6size_t"><code class="docutils literal notranslate"><span class="pre">Server::start()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server12defineActionERKN7Message4TypeERKNSt8functionIFvRxRK7MessageEEE"><code class="docutils literal notranslate"><span class="pre">Server::defineAction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server12defineActionEKiRKNSt8functionIFvRxRK7MessageEEE"><code class="docutils literal notranslate"><span class="pre">Server::defineAction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server6sendToERK7Messagex"><code class="docutils literal notranslate"><span class="pre">Server::sendTo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server11sendToArrayERK7MessageRKNSt6vectorIxEE"><code class="docutils literal notranslate"><span class="pre">Server::sendToArray()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server9sendToAllERK7Message"><code class="docutils literal notranslate"><span class="pre">Server::sendToAll()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server6updateEv"><code class="docutils literal notranslate"><span class="pre">Server::update()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server11_acceptLoopEv"><code class="docutils literal notranslate"><span class="pre">Server::_acceptLoop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server14_clientHandlerEx"><code class="docutils literal notranslate"><span class="pre">Server::_clientHandler()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server13_removeClientEx"><code class="docutils literal notranslate"><span class="pre">Server::_removeClient()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server10server_fd_E"><code class="docutils literal notranslate"><span class="pre">Server::server_fd_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server13client_mutex_E"><code class="docutils literal notranslate"><span class="pre">Server::client_mutex_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server15client_sockets_E"><code class="docutils literal notranslate"><span class="pre">Server::client_sockets_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server18connected_clients_E"><code class="docutils literal notranslate"><span class="pre">Server::connected_clients_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server17message_observer_E"><code class="docutils literal notranslate"><span class="pre">Server::message_observer_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server7worker_E"><code class="docutils literal notranslate"><span class="pre">Server::worker_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Server9id_count_E"><code class="docutils literal notranslate"><span class="pre">Server::id_count_</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mathematics.html">Mathematics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">libftpp</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Network</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/network.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="network">
+<h1>Network<a class="headerlink" href="#network" title="Link to this heading"></a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv47Message">
+<span id="_CPPv37Message"></span><span id="_CPPv27Message"></span><span id="Message"></span><span class="target" id="classMessage"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Message</span></span></span><a class="headerlink" href="#_CPPv47Message" title="Link to this definition"></a><br /></dt>
+<dd><p>A class for serializing and deserializing messages using <code class="docutils literal notranslate"><a class="reference internal" href="data_structures.html#classDataBuffer"><span class="std std-ref"><span class="pre">DataBuffer</span></span></a></code>. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp enum-class">
+<dt class="sig sig-object cpp" id="_CPPv4N7Message4TypeE">
+<span id="_CPPv3N7Message4TypeE"></span><span id="_CPPv2N7Message4TypeE"></span><span class="target" id="classMessage_1a1c65ab3f02ba5b175f583f9d275ecf2b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Type</span></span></span><a class="headerlink" href="#_CPPv4N7Message4TypeE" title="Link to this definition"></a><br /></dt>
+<dd><p>Enum to represent the type of message. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N7Message4Type3IntE">
+<span id="_CPPv3N7Message4Type3IntE"></span><span id="_CPPv2N7Message4Type3IntE"></span><span class="target" id="classMessage_1a1c65ab3f02ba5b175f583f9d275ecf2ba1686a6c336b71b36d77354cea19a8b52"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Int</span></span></span><a class="headerlink" href="#_CPPv4N7Message4Type3IntE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N7Message4Type6StringE">
+<span id="_CPPv3N7Message4Type6StringE"></span><span id="_CPPv2N7Message4Type6StringE"></span><span class="target" id="classMessage_1a1c65ab3f02ba5b175f583f9d275ecf2ba27118326006d3829667a400ad23d5d98"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">String</span></span></span><a class="headerlink" href="#_CPPv4N7Message4Type6StringE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N7Message4Type6DoubleE">
+<span id="_CPPv3N7Message4Type6DoubleE"></span><span id="_CPPv2N7Message4Type6DoubleE"></span><span class="target" id="classMessage_1a1c65ab3f02ba5b175f583f9d275ecf2bad909d38d705ce75386dd86e611a82f5b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Double</span></span></span><a class="headerlink" href="#_CPPv4N7Message4Type6DoubleE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7Message7MessageEi">
+<span id="_CPPv3N7Message7MessageEi"></span><span id="_CPPv2N7Message7MessageEi"></span><span id="Message::Message__i"></span><span class="target" id="classMessage_1a0e350c738ce58a3c979aff3ff5ee62b6"></span><span class="sig-name descname"><span class="n"><span class="pre">Message</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">type</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7Message7MessageEi" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructor for <a class="reference internal" href="#classMessage"><span class="std std-ref">Message</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>type</strong> – The type of the message. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7MessagelsERKNSt6stringE">
+<span id="_CPPv3N7MessagelsERKNSt6stringE"></span><span id="_CPPv2N7MessagelsERKNSt6stringE"></span><span id="Message::lshift-operator__ssCR"></span><span class="target" id="classMessage_1aa33c1ab0d8fc1d9ae7984d17b543c825"></span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">str</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7MessagelsERKNSt6stringE" title="Link to this definition"></a><br /></dt>
+<dd><p>Serialize data into the message. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – The type of the data to serialize. </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>data</strong> – The data to serialize. </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Reference to the current message for chaining. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN7MessagelsER7MessageRK1T">
+<span id="_CPPv3I0EN7MessagelsERK1T"></span><span id="_CPPv2I0EN7MessagelsERK1T"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classMessage_1ad6626ddbad56d992b88e78c698d5567b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN7MessagelsER7MessageRK1T" title="Message::operator&lt;&lt;::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN7MessagelsER7MessageRK1T" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK7MessagersERNSt6stringE">
+<span id="_CPPv3NK7MessagersERNSt6stringE"></span><span id="_CPPv2NK7MessagersERNSt6stringE"></span><span id="Message::rshift-operator__ssRC"></span><span class="target" id="classMessage_1acf5f75d59c4bcb65df8874a72c9162a1"></span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">str</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK7MessagersERNSt6stringE" title="Link to this definition"></a><br /></dt>
+<dd><p>Deserialize data from the message. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> – The type of the data to deserialize. </p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>data</strong> – The variable to hold deserialized data. </p>
+</dd>
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – if the deserialization fails. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the current message for chaining. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0ENK7MessagersE7MessageR1T">
+<span id="_CPPv3I0ENK7MessagersER1T"></span><span id="_CPPv2I0ENK7MessagersER1T"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classMessage_1af0a6f1664db24ee2cb0db8cffa454bd0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0ENK7MessagersE7MessageR1T" title="Message::operator&gt;&gt;::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4I0ENK7MessagersE7MessageR1T" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK7Message4typeEv">
+<span id="_CPPv3NK7Message4typeEv"></span><span id="_CPPv2NK7Message4typeEv"></span><span id="Message::typeC"></span><span class="target" id="classMessage_1ac74d35360308c9517f1a926e3102f53c"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">type</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK7Message4typeEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Returns the type of the message. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The type of the message. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK7Message17getSerializedDataEv">
+<span id="_CPPv3NK7Message17getSerializedDataEv"></span><span id="_CPPv2NK7Message17getSerializedDataEv"></span><span id="Message::getSerializedDataC"></span><span class="target" id="classMessage_1a1cf7133736c7dcd4d8e79fc5166161cd"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getSerializedData</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK7Message17getSerializedDataEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Returns the serialized data. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The serialized data. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7Message19deserializeMessagesERKNSt6vectorI7uint8_tEE">
+<span id="_CPPv3N7Message19deserializeMessagesERKNSt6vectorI7uint8_tEE"></span><span id="_CPPv2N7Message19deserializeMessagesERKNSt6vectorI7uint8_tEE"></span><span id="Message::deserializeMessages__std::vector:uint8_t:CR"></span><span class="target" id="classMessage_1ae35267e6b26262a0d1b268d487ce1c80"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">deserializeMessages</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7Message19deserializeMessagesERKNSt6vectorI7uint8_tEE" title="Link to this definition"></a><br /></dt>
+<dd><p>Deserialize a buffer into multiple <code class="docutils literal notranslate"><a class="reference internal" href="#classMessage"><span class="std std-ref"><span class="pre">Message</span></span></a></code> objects. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> – The raw data buffer containing one or more serialized messages. </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – if the data is invalid or incomplete. </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A vector of deserialized <code class="docutils literal notranslate"><a class="reference internal" href="#classMessage"><span class="std std-ref"><span class="pre">Message</span></span></a></code> objects. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N7Message13message_type_E">
+<span id="_CPPv3N7Message13message_type_E"></span><span id="_CPPv2N7Message13message_type_E"></span><span id="Message::message_type___Type"></span><span class="target" id="classMessage_1a996e94d5d79c6eab69bec4ad775ec0de"></span><a class="reference internal" href="#_CPPv4N7Message4TypeE" title="Message::Type"><span class="n"><span class="pre">Type</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">message_type_</span></span></span><a class="headerlink" href="#_CPPv4N7Message13message_type_E" title="Link to this definition"></a><br /></dt>
+<dd><p>The type of the message. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N7Message7buffer_E">
+<span id="_CPPv3N7Message7buffer_E"></span><span id="_CPPv2N7Message7buffer_E"></span><span id="Message::buffer___DataBuffer"></span><span class="target" id="classMessage_1ae7368073c4d96a047d32b518066c3a64"></span><span class="k"><span class="pre">mutable</span></span><span class="w"> </span><a class="reference internal" href="data_structures.html#_CPPv410DataBuffer" title="DataBuffer"><span class="n"><span class="pre">DataBuffer</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">buffer_</span></span></span><a class="headerlink" href="#_CPPv4N7Message7buffer_E" title="Link to this definition"></a><br /></dt>
+<dd><p>The data buffer for serialization. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv46Client">
+<span id="_CPPv36Client"></span><span id="_CPPv26Client"></span><span id="Client"></span><span class="target" id="classClient"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Client</span></span></span><a class="headerlink" href="#_CPPv46Client" title="Link to this definition"></a><br /></dt>
+<dd><p>Represents a network client capable of connecting to a server, sending messages, and handling server responses. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Client6ClientEv">
+<span id="_CPPv3N6Client6ClientEv"></span><span id="_CPPv2N6Client6ClientEv"></span><span id="Client::Client"></span><span class="target" id="classClient_1ae51af7aa6b8f591496a8f6a4a87a14bf"></span><span class="sig-name descname"><span class="n"><span class="pre">Client</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Client6ClientEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Default constructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6ClientD0Ev">
+<span id="_CPPv3N6ClientD0Ev"></span><span id="_CPPv2N6ClientD0Ev"></span><span id="Client::~Client"></span><span class="target" id="classClient_1a840e519ca781888cbd54181572ebe3a7"></span><span class="sig-name descname"><span class="n"><span class="pre">~Client</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6ClientD0Ev" title="Link to this definition"></a><br /></dt>
+<dd><p>Destructor, ensures proper cleanup. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Client7connectERKNSt6stringERK6size_t">
+<span id="_CPPv3N6Client7connectERKNSt6stringERK6size_t"></span><span id="_CPPv2N6Client7connectERKNSt6stringERK6size_t"></span><span id="Client::connect__ssCR.sCR"></span><span class="target" id="classClient_1a106851f26d51f1312556035c08318e61"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">connect</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">address</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">port</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Client7connectERKNSt6stringERK6size_t" title="Link to this definition"></a><br /></dt>
+<dd><p>Connects the client to a specific server. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> – The server address to connect to. </p></li>
+<li><p><strong>port</strong> – The server port to connect to. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – if connection fails. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Client10disconnectEv">
+<span id="_CPPv3N6Client10disconnectEv"></span><span id="_CPPv2N6Client10disconnectEv"></span><span id="Client::disconnect"></span><span class="target" id="classClient_1a97e144b48409c0a9873eee09f04ce724"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">disconnect</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Client10disconnectEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Disconnects the client from the server. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Client12defineActionERKN7Message4TypeERKNSt8functionIFvRK7MessageEEE">
+<span id="_CPPv3N6Client12defineActionERKN7Message4TypeERKNSt8functionIFvRK7MessageEEE"></span><span id="_CPPv2N6Client12defineActionERKN7Message4TypeERKNSt8functionIFvRK7MessageEEE"></span><span class="target" id="classClient_1a73168391a6592f8e293e5a386e2e93bd"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">defineAction</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N7Message4TypeE" title="Message::Type"><span class="n"><span class="pre">Type</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">messageType</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">action</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Client12defineActionERKN7Message4TypeERKNSt8functionIFvRK7MessageEEE" title="Link to this definition"></a><br /></dt>
+<dd><p>Subscribes an action to a specific message type. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>messageType</strong> – The type of message to handle. </p></li>
+<li><p><strong>action</strong> – The action to execute for the given message type. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Client12defineActionEKiRKNSt8functionIFvRK7MessageEEE">
+<span id="_CPPv3N6Client12defineActionEKiRKNSt8functionIFvRK7MessageEEE"></span><span id="_CPPv2N6Client12defineActionEKiRKNSt8functionIFvRK7MessageEEE"></span><span class="target" id="classClient_1a3bbeddcc456313a68930d490faa6224c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">defineAction</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">messageType</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">action</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Client12defineActionEKiRKNSt8functionIFvRK7MessageEEE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Client4sendERK7Message">
+<span id="_CPPv3N6Client4sendERK7Message"></span><span id="_CPPv2N6Client4sendERK7Message"></span><span id="Client::send__MessageCR"></span><span class="target" id="classClient_1a605a7c016df9a88593acc73b262e99b2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">send</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">message</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Client4sendERK7Message" title="Link to this definition"></a><br /></dt>
+<dd><p>Sends a message to the server. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message</strong> – The message to send. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Client6updateEv">
+<span id="_CPPv3N6Client6updateEv"></span><span id="_CPPv2N6Client6updateEv"></span><span id="Client::update"></span><span class="target" id="classClient_1a6e7a5e19c40bef39ae1c0f5996b8c471"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">update</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Client6updateEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Processes all received messages and executes their associated actions. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Client8sock_fd_E">
+<span id="_CPPv3N6Client8sock_fd_E"></span><span id="_CPPv2N6Client8sock_fd_E"></span><span id="Client::sock_fd___i"></span><span class="target" id="classClient_1ae4a66c49e21ed5f1cf1001970e5bef11"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sock_fd_</span></span></span><a class="headerlink" href="#_CPPv4N6Client8sock_fd_E" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Client13is_connected_E">
+<span id="_CPPv3N6Client13is_connected_E"></span><span id="_CPPv2N6Client13is_connected_E"></span><span id="Client::is_connected___b"></span><span class="target" id="classClient_1a7c01ad895b49712ac0890df04f65193b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_connected_</span></span></span><a class="headerlink" href="#_CPPv4N6Client13is_connected_E" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Client17message_observer_E">
+<span id="_CPPv3N6Client17message_observer_E"></span><span id="_CPPv2N6Client17message_observer_E"></span><span id="Client::message_observer___Observer:Message::Type.MessageCR:"></span><span class="target" id="classClient_1a6aad0456e842247c10fa843487deba6a"></span><a class="reference internal" href="design_patterns.html#_CPPv4I0DpE8Observer" title="Observer"><span class="n"><span class="pre">Observer</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N7Message4TypeE" title="Message::Type"><span class="n"><span class="pre">Type</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">message_observer_</span></span></span><a class="headerlink" href="#_CPPv4N6Client17message_observer_E" title="Link to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="design_patterns.html#classObserver"><span class="std std-ref">Observer</span></a> for message type actions. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv46Server">
+<span id="_CPPv36Server"></span><span id="_CPPv26Server"></span><span id="Server"></span><span class="target" id="classServer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Server</span></span></span><a class="headerlink" href="#_CPPv46Server" title="Link to this definition"></a><br /></dt>
+<dd><p>Represents a network server capable of managing multiple clients, routing messages, and executing actions. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server6ServerEv">
+<span id="_CPPv3N6Server6ServerEv"></span><span id="_CPPv2N6Server6ServerEv"></span><span id="Server::Server"></span><span class="target" id="classServer_1ad5ec9462b520e59f7ea831e157ee5e59"></span><span class="sig-name descname"><span class="n"><span class="pre">Server</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Server6ServerEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Default constructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6ServerD0Ev">
+<span id="_CPPv3N6ServerD0Ev"></span><span id="_CPPv2N6ServerD0Ev"></span><span id="Server::~Server"></span><span class="target" id="classServer_1a4b3aa2579cb1c8cd1d069582c14d0fa6"></span><span class="sig-name descname"><span class="n"><span class="pre">~Server</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6ServerD0Ev" title="Link to this definition"></a><br /></dt>
+<dd><p>Destructor, ensures proper cleanup. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server5startERK6size_t">
+<span id="_CPPv3N6Server5startERK6size_t"></span><span id="_CPPv2N6Server5startERK6size_t"></span><span id="Server::start__sCR"></span><span class="target" id="classServer_1a6e4d7157feb00b778fc7c2af084899e3"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">start</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">port</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Server5startERK6size_t" title="Link to this definition"></a><br /></dt>
+<dd><p>Starts the server at the specified port. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>port</strong> – The port to listen on. </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – if the server fails to start. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server12defineActionERKN7Message4TypeERKNSt8functionIFvRxRK7MessageEEE">
+<span id="_CPPv3N6Server12defineActionERKN7Message4TypeERKNSt8functionIFvRxRK7MessageEEE"></span><span id="_CPPv2N6Server12defineActionERKN7Message4TypeERKNSt8functionIFvRxRK7MessageEEE"></span><span class="target" id="classServer_1a4589892fd169068d7c77d66018242b82"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">defineAction</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N7Message4TypeE" title="Message::Type"><span class="n"><span class="pre">Type</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">messageType</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">action</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Server12defineActionERKN7Message4TypeERKNSt8functionIFvRxRK7MessageEEE" title="Link to this definition"></a><br /></dt>
+<dd><p>Subscribes an action to a specific message type. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>messageType</strong> – The type of message to handle. </p></li>
+<li><p><strong>action</strong> – The action to execute for the given message type. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server12defineActionEKiRKNSt8functionIFvRxRK7MessageEEE">
+<span id="_CPPv3N6Server12defineActionEKiRKNSt8functionIFvRxRK7MessageEEE"></span><span id="_CPPv2N6Server12defineActionEKiRKNSt8functionIFvRxRK7MessageEEE"></span><span class="target" id="classServer_1adbf1049e0ceb997f951ded54ad309e87"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">defineAction</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">messageType</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">action</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Server12defineActionEKiRKNSt8functionIFvRxRK7MessageEEE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server6sendToERK7Messagex">
+<span id="_CPPv3N6Server6sendToERK7Messagex"></span><span id="_CPPv2N6Server6sendToERK7Messagex"></span><span id="Server::sendTo__MessageCR.l-l"></span><span class="target" id="classServer_1aa26ac76c4469f6fb6403904215d3762c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sendTo</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">message</span></span>, <span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">clientID</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Server6sendToERK7Messagex" title="Link to this definition"></a><br /></dt>
+<dd><p>Sends a message to a specific client. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> – The message to send. </p></li>
+<li><p><strong>clientID</strong> – The ID of the client to send the message to. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server11sendToArrayERK7MessageRKNSt6vectorIxEE">
+<span id="_CPPv3N6Server11sendToArrayERK7MessageRKNSt6vectorIxEE"></span><span id="_CPPv2N6Server11sendToArrayERK7MessageRKNSt6vectorIxEE"></span><span id="Server::sendToArray__MessageCR.std::vector:l-l:CR"></span><span class="target" id="classServer_1aa2db1feb01266a6c031b4628a551e344"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sendToArray</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">message</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">clientIDs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Server11sendToArrayERK7MessageRKNSt6vectorIxEE" title="Link to this definition"></a><br /></dt>
+<dd><p>Sends a message to multiple clients. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> – The message to send. </p></li>
+<li><p><strong>clientIDs</strong> – A vector of client IDs to send the message to. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server9sendToAllERK7Message">
+<span id="_CPPv3N6Server9sendToAllERK7Message"></span><span id="_CPPv2N6Server9sendToAllERK7Message"></span><span id="Server::sendToAll__MessageCR"></span><span class="target" id="classServer_1ae30c39d40341cb59a50408c3345676f0"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sendToAll</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">message</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Server9sendToAllERK7Message" title="Link to this definition"></a><br /></dt>
+<dd><p>Sends a message to all connected clients. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message</strong> – The message to send. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server6updateEv">
+<span id="_CPPv3N6Server6updateEv"></span><span id="_CPPv2N6Server6updateEv"></span><span id="Server::update"></span><span class="target" id="classServer_1af7b0a4370ac2c1e573f292870adfa81c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">update</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Server6updateEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Processes all received messages and executes their associated actions. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server11_acceptLoopEv">
+<span id="_CPPv3N6Server11_acceptLoopEv"></span><span id="_CPPv2N6Server11_acceptLoopEv"></span><span id="Server::_acceptLoop"></span><span class="target" id="classServer_1a6ea9cdb52e621868db9639ba73746df1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_acceptLoop</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Server11_acceptLoopEv" title="Link to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="thread.html#classThread"><span class="std std-ref">Thread</span></a> function for accepting new clients. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server14_clientHandlerEx">
+<span id="_CPPv3N6Server14_clientHandlerEx"></span><span id="_CPPv2N6Server14_clientHandlerEx"></span><span id="Server::_clientHandler__l-l"></span><span class="target" id="classServer_1a905a1e44cb5e69ae99c6f70b64b516bd"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_clientHandler</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">clientID</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Server14_clientHandlerEx" title="Link to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="thread.html#classThread"><span class="std std-ref">Thread</span></a> function for handling a specific client. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server13_removeClientEx">
+<span id="_CPPv3N6Server13_removeClientEx"></span><span id="_CPPv2N6Server13_removeClientEx"></span><span id="Server::_removeClient__l-l"></span><span class="target" id="classServer_1a10551357d8e44021842ac13d70a4a743"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_removeClient</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">clientID</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Server13_removeClientEx" title="Link to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="thread.html#classThread"><span class="std std-ref">Thread</span></a> function for removing existing clients. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server10server_fd_E">
+<span id="_CPPv3N6Server10server_fd_E"></span><span id="_CPPv2N6Server10server_fd_E"></span><span id="Server::server_fd___i"></span><span class="target" id="classServer_1a566cd5dd4c0933fb6132706cd12af23b"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">server_fd_</span></span></span><a class="headerlink" href="#_CPPv4N6Server10server_fd_E" title="Link to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="#classServer"><span class="std std-ref">Server</span></a>’s listening socket file descriptor. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server13client_mutex_E">
+<span id="_CPPv3N6Server13client_mutex_E"></span><span id="_CPPv2N6Server13client_mutex_E"></span><span id="Server::client_mutex___std::mutex"></span><span class="target" id="classServer_1adbe7906bc9722ee9c56faea6d683c323"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mutex</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">client_mutex_</span></span></span><a class="headerlink" href="#_CPPv4N6Server13client_mutex_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Protects access to the client_sockets_ map. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server15client_sockets_E">
+<span id="_CPPv3N6Server15client_sockets_E"></span><span id="_CPPv2N6Server15client_sockets_E"></span><span id="Server::client_sockets___std::unordered_map:l-l.i:"></span><span class="target" id="classServer_1ad21b7451468a0b1e8a36247c52273273"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">client_sockets_</span></span></span><a class="headerlink" href="#_CPPv4N6Server15client_sockets_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Mapping of client IDs to their socket descriptors. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server18connected_clients_E">
+<span id="_CPPv3N6Server18connected_clients_E"></span><span id="_CPPv2N6Server18connected_clients_E"></span><span id="Server::connected_clients___std::set:l-l:"></span><span class="target" id="classServer_1a4fc094b1cd8e2adadb4ad7ed083f6075"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">set</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">connected_clients_</span></span></span><a class="headerlink" href="#_CPPv4N6Server18connected_clients_E" title="Link to this definition"></a><br /></dt>
+<dd><p>List of active clients. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server17message_observer_E">
+<span id="_CPPv3N6Server17message_observer_E"></span><span id="_CPPv2N6Server17message_observer_E"></span><span id="Server::message_observer___Observer:Message::Type.l-lR.MessageCR:"></span><span class="target" id="classServer_1a68ad512cb167162a36bb8010d65a6849"></span><a class="reference internal" href="design_patterns.html#_CPPv4I0DpE8Observer" title="Observer"><span class="n"><span class="pre">Observer</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N7Message4TypeE" title="Message::Type"><span class="n"><span class="pre">Type</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv47Message" title="Message"><span class="n"><span class="pre">Message</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">message_observer_</span></span></span><a class="headerlink" href="#_CPPv4N6Server17message_observer_E" title="Link to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="design_patterns.html#classObserver"><span class="std std-ref">Observer</span></a> for message type actions. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server7worker_E">
+<span id="_CPPv3N6Server7worker_E"></span><span id="_CPPv2N6Server7worker_E"></span><span id="Server::worker___PersistentWorker"></span><span class="target" id="classServer_1ac3815d830321edbaa25eaa0d18069378"></span><a class="reference internal" href="thread.html#_CPPv416PersistentWorker" title="PersistentWorker"><span class="n"><span class="pre">PersistentWorker</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">worker_</span></span></span><a class="headerlink" href="#_CPPv4N6Server7worker_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Worker for accepting connections. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Server9id_count_E">
+<span id="_CPPv3N6Server9id_count_E"></span><span id="_CPPv2N6Server9id_count_E"></span><span id="Server::id_count___l-l"></span><span class="target" id="classServer_1a0ebc3c9ae0fa657141e6237a561c88cc"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">id_count_</span></span></span><a class="headerlink" href="#_CPPv4N6Server9id_count_E" title="Link to this definition"></a><br /></dt>
+<dd><p>ID count. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="thread.html" class="btn btn-neutral float-left" title="Thread" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mathematics.html" class="btn btn-neutral float-right" title="Mathematics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, pulgamecanica.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
