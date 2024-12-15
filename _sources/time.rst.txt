@@ -1,31 +1,23 @@
-Mathematics
-===========
+Time
+====
 
-.. doxygenstruct:: IVector2
+.. doxygenclass:: Timer
    :project: libftpp
    :members:
    :private-members:
    :protected-members:
    :undoc-members:
 
-.. doxygenstruct:: IVector3
+.. doxygenclass:: Chronometer
    :project: libftpp
    :members:
    :private-members:
    :protected-members:
    :undoc-members:
 
-.. doxygenclass:: Random2DCoordinateGenerator
+.. doxygenclass:: Scheduler
    :project: libftpp
    :members:
    :private-members:
    :protected-members:
    :undoc-members:
-
-.. doxygenclass:: PerlinNoise2D
-   :project: libftpp
-   :members:
-   :private-members:
-   :protected-members:
-   :undoc-members:
-

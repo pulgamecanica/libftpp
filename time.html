@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time &mdash; libftpp 0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8dde47fa"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Mathematics" href="mathematics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            libftpp
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Index:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">Welcome to libftpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_structures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_patterns.html">Design Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iostream.html">IOStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thread.html">Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network.html">Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathematics.html">Mathematics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Time</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv45Timer"><code class="docutils literal notranslate"><span class="pre">Timer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5Timer5TimerE7int64_t"><code class="docutils literal notranslate"><span class="pre">Timer::Timer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5Timer5resetEv"><code class="docutils literal notranslate"><span class="pre">Timer::reset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK5Timer11hasTimedOutEv"><code class="docutils literal notranslate"><span class="pre">Timer::hasTimedOut()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5Timer12duration_ms_E"><code class="docutils literal notranslate"><span class="pre">Timer::duration_ms_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N5Timer11start_time_E"><code class="docutils literal notranslate"><span class="pre">Timer::start_time_</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv411Chronometer"><code class="docutils literal notranslate"><span class="pre">Chronometer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N11Chronometer5startEv"><code class="docutils literal notranslate"><span class="pre">Chronometer::start()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N11Chronometer4stopEv"><code class="docutils literal notranslate"><span class="pre">Chronometer::stop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK11Chronometer7elapsedEv"><code class="docutils literal notranslate"><span class="pre">Chronometer::elapsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N11Chronometer8running_E"><code class="docutils literal notranslate"><span class="pre">Chronometer::running_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N11Chronometer11start_time_E"><code class="docutils literal notranslate"><span class="pre">Chronometer::start_time_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N11Chronometer9end_time_E"><code class="docutils literal notranslate"><span class="pre">Chronometer::end_time_</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv49Scheduler"><code class="docutils literal notranslate"><span class="pre">Scheduler</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9Scheduler9SchedulerEv"><code class="docutils literal notranslate"><span class="pre">Scheduler::Scheduler()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9Scheduler13schedule_onceE7int64_tRKNSt8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">Scheduler::schedule_once()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9Scheduler18schedule_repeatingERKNSt6stringE7int64_tRKNSt8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">Scheduler::schedule_repeating()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9Scheduler6cancelERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">Scheduler::cancel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9SchedulerD0Ev"><code class="docutils literal notranslate"><span class="pre">Scheduler::~Scheduler()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9Scheduler18persistent_worker_E"><code class="docutils literal notranslate"><span class="pre">Scheduler::persistent_worker_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9Scheduler15one_time_tasks_E"><code class="docutils literal notranslate"><span class="pre">Scheduler::one_time_tasks_</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">libftpp</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Time</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/time.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="time">
+<h1>Time<a class="headerlink" href="#time" title="Link to this heading"></a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv45Timer">
+<span id="_CPPv35Timer"></span><span id="_CPPv25Timer"></span><span id="Timer"></span><span class="target" id="classTimer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Timer</span></span></span><a class="headerlink" href="#_CPPv45Timer" title="Link to this definition"></a><br /></dt>
+<dd><p>Allows setting a duration and checking if it has timed out. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5Timer5TimerE7int64_t">
+<span id="_CPPv3N5Timer5TimerE7int64_t"></span><span id="_CPPv2N5Timer5TimerE7int64_t"></span><span id="Timer::Timer__int64_t"></span><span class="target" id="classTimer_1a41a3ee89269b869b5ef4b45b953451cd"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Timer</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">duration_ms</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5Timer5TimerE7int64_t" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs a <a class="reference internal" href="#classTimer"><span class="std std-ref">Timer</span></a> with the specified duration. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>duration_ms</strong> – Duration in milliseconds. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5Timer5resetEv">
+<span id="_CPPv3N5Timer5resetEv"></span><span id="_CPPv2N5Timer5resetEv"></span><span id="Timer::reset"></span><span class="target" id="classTimer_1a9020542d73357a4eef512eefaf57524b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">reset</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5Timer5resetEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Resets the timer, starting from the current time. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5Timer11hasTimedOutEv">
+<span id="_CPPv3NK5Timer11hasTimedOutEv"></span><span id="_CPPv2NK5Timer11hasTimedOutEv"></span><span id="Timer::hasTimedOutC"></span><span class="target" id="classTimer_1ad41fd877fbdbf6bc8e31dfead222d913"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">hasTimedOut</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5Timer11hasTimedOutEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Checks if the timer has timed out. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the timer has timed out, false otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N5Timer12duration_ms_E">
+<span id="_CPPv3N5Timer12duration_ms_E"></span><span id="_CPPv2N5Timer12duration_ms_E"></span><span id="Timer::duration_ms___int64_t"></span><span class="target" id="classTimer_1af665d17dd9aa44719b1b08233bebdf83"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">duration_ms_</span></span></span><a class="headerlink" href="#_CPPv4N5Timer12duration_ms_E" title="Link to this definition"></a><br /></dt>
+<dd><p>The duration in milliseconds. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N5Timer11start_time_E">
+<span id="_CPPv3N5Timer11start_time_E"></span><span id="_CPPv2N5Timer11start_time_E"></span><span id="Timer::start_time___std::chrono::time_point:std::chrono::steady_clock:"></span><span class="target" id="classTimer_1a06246ba7d7e22fc9ba463477577e989d"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">time_point</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">steady_clock</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">start_time_</span></span></span><a class="headerlink" href="#_CPPv4N5Timer11start_time_E" title="Link to this definition"></a><br /></dt>
+<dd><p>The start time of the timer. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv411Chronometer">
+<span id="_CPPv311Chronometer"></span><span id="_CPPv211Chronometer"></span><span id="Chronometer"></span><span class="target" id="classChronometer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Chronometer</span></span></span><a class="headerlink" href="#_CPPv411Chronometer" title="Link to this definition"></a><br /></dt>
+<dd><p>Allows measuring durations using system time. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11Chronometer5startEv">
+<span id="_CPPv3N11Chronometer5startEv"></span><span id="_CPPv2N11Chronometer5startEv"></span><span id="Chronometer::start"></span><span class="target" id="classChronometer_1aef429cdb6aae70bf6a8b540e426efb96"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">start</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11Chronometer5startEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Starts or restarts the chronometer. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N11Chronometer4stopEv">
+<span id="_CPPv3N11Chronometer4stopEv"></span><span id="_CPPv2N11Chronometer4stopEv"></span><span id="Chronometer::stop"></span><span class="target" id="classChronometer_1a8384da4b8d4bd9179a71a9224a35be60"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">stop</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N11Chronometer4stopEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Stops the chronometer and returns the elapsed time. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Elapsed time in milliseconds. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK11Chronometer7elapsedEv">
+<span id="_CPPv3NK11Chronometer7elapsedEv"></span><span id="_CPPv2NK11Chronometer7elapsedEv"></span><span id="Chronometer::elapsedC"></span><span class="target" id="classChronometer_1aa53413a72d3b1332149cafb1f64275e2"></span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">elapsed</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK11Chronometer7elapsedEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Returns the elapsed time without stopping the chronometer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Elapsed time in milliseconds. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11Chronometer8running_E">
+<span id="_CPPv3N11Chronometer8running_E"></span><span id="_CPPv2N11Chronometer8running_E"></span><span id="Chronometer::running___b"></span><span class="target" id="classChronometer_1a0a3c570676ac8299c411465143f4f4df"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">running_</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><a class="headerlink" href="#_CPPv4N11Chronometer8running_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Indicates whether the chronometer is running. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11Chronometer11start_time_E">
+<span id="_CPPv3N11Chronometer11start_time_E"></span><span id="_CPPv2N11Chronometer11start_time_E"></span><span id="Chronometer::start_time___std::chrono::time_point:std::chrono::steady_clock:"></span><span class="target" id="classChronometer_1aa69df94c9988442a56428e7e87e5207c"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">time_point</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">steady_clock</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">start_time_</span></span></span><a class="headerlink" href="#_CPPv4N11Chronometer11start_time_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Start time. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N11Chronometer9end_time_E">
+<span id="_CPPv3N11Chronometer9end_time_E"></span><span id="_CPPv2N11Chronometer9end_time_E"></span><span id="Chronometer::end_time___std::chrono::time_point:std::chrono::steady_clock:"></span><span class="target" id="classChronometer_1a480c178a5c4b42b5fdeac3adac5a094b"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">time_point</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">steady_clock</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">end_time_</span></span></span><a class="headerlink" href="#_CPPv4N11Chronometer9end_time_E" title="Link to this definition"></a><br /></dt>
+<dd><p>End time. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv49Scheduler">
+<span id="_CPPv39Scheduler"></span><span id="_CPPv29Scheduler"></span><span id="Scheduler"></span><span class="target" id="classScheduler"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Scheduler</span></span></span><a class="headerlink" href="#_CPPv49Scheduler" title="Link to this definition"></a><br /></dt>
+<dd><p>Allows scheduling tasks to run after a delay or at regular intervals using <a class="reference internal" href="thread.html#classPersistentWorker"><span class="std std-ref">PersistentWorker</span></a>. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9Scheduler9SchedulerEv">
+<span id="_CPPv3N9Scheduler9SchedulerEv"></span><span id="_CPPv2N9Scheduler9SchedulerEv"></span><span id="Scheduler::Scheduler"></span><span class="target" id="classScheduler_1a3b61aac11466cd45ae42ab8c2b0013f6"></span><span class="sig-name descname"><span class="n"><span class="pre">Scheduler</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9Scheduler9SchedulerEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs a <a class="reference internal" href="#classScheduler"><span class="std std-ref">Scheduler</span></a>. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9Scheduler13schedule_onceE7int64_tRKNSt8functionIFvvEEE">
+<span id="_CPPv3N9Scheduler13schedule_onceE7int64_tRKNSt8functionIFvvEEE"></span><span id="_CPPv2N9Scheduler13schedule_onceE7int64_tRKNSt8functionIFvvEEE"></span><span class="target" id="classScheduler_1a61bbac5f8edf23918516c3439f88df98"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">schedule_once</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">delay_ms</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9Scheduler13schedule_onceE7int64_tRKNSt8functionIFvvEEE" title="Link to this definition"></a><br /></dt>
+<dd><p>Schedules a task to run once after a delay. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>delay_ms</strong> – Delay in milliseconds before the task is executed. </p></li>
+<li><p><strong>task</strong> – The task to execute. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9Scheduler18schedule_repeatingERKNSt6stringE7int64_tRKNSt8functionIFvvEEE">
+<span id="_CPPv3N9Scheduler18schedule_repeatingERKNSt6stringE7int64_tRKNSt8functionIFvvEEE"></span><span id="_CPPv2N9Scheduler18schedule_repeatingERKNSt6stringE7int64_tRKNSt8functionIFvvEEE"></span><span class="target" id="classScheduler_1aef70970e75d2e57f2642c650df678bf0"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">schedule_repeating</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span>, <span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">interval_ms</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9Scheduler18schedule_repeatingERKNSt6stringE7int64_tRKNSt8functionIFvvEEE" title="Link to this definition"></a><br /></dt>
+<dd><p>Schedules a task to run repeatedly at fixed intervals. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – A unique name for the task. </p></li>
+<li><p><strong>interval_ms</strong> – The interval in milliseconds between executions. </p></li>
+<li><p><strong>task</strong> – The task to execute. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9Scheduler6cancelERKNSt6stringE">
+<span id="_CPPv3N9Scheduler6cancelERKNSt6stringE"></span><span id="_CPPv2N9Scheduler6cancelERKNSt6stringE"></span><span id="Scheduler::cancel__ssCR"></span><span class="target" id="classScheduler_1a027bbc51d0f158ca95324f824dbf3631"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cancel</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9Scheduler6cancelERKNSt6stringE" title="Link to this definition"></a><br /></dt>
+<dd><p>Cancels a scheduled repeating task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> – The unique name of the task to cancel. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9SchedulerD0Ev">
+<span id="_CPPv3N9SchedulerD0Ev"></span><span id="_CPPv2N9SchedulerD0Ev"></span><span id="Scheduler::~Scheduler"></span><span class="target" id="classScheduler_1afc8187779b46f64039d3ffa58f0dbe51"></span><span class="sig-name descname"><span class="n"><span class="pre">~Scheduler</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9SchedulerD0Ev" title="Link to this definition"></a><br /></dt>
+<dd><p>Destructor ensures all repeating tasks are cleaned up. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9Scheduler18persistent_worker_E">
+<span id="_CPPv3N9Scheduler18persistent_worker_E"></span><span id="_CPPv2N9Scheduler18persistent_worker_E"></span><span id="Scheduler::persistent_worker___std::unique_ptr:PersistentWorker:"></span><span class="target" id="classScheduler_1ae65063de9a29cc2bc09cb2910ab1d295"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="thread.html#_CPPv416PersistentWorker" title="PersistentWorker"><span class="n"><span class="pre">PersistentWorker</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">persistent_worker_</span></span></span><a class="headerlink" href="#_CPPv4N9Scheduler18persistent_worker_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Worker for managing repeating tasks. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9Scheduler15one_time_tasks_E">
+<span id="_CPPv3N9Scheduler15one_time_tasks_E"></span><span id="_CPPv2N9Scheduler15one_time_tasks_E"></span><span id="Scheduler::one_time_tasks___std::vector:std::unique_ptr:Thread::"></span><span class="target" id="classScheduler_1a9ff674509fff2e7805848cfbbe5c516b"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="thread.html#_CPPv46Thread" title="Thread"><span class="n"><span class="pre">Thread</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">one_time_tasks_</span></span></span><a class="headerlink" href="#_CPPv4N9Scheduler15one_time_tasks_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Threads for one-time tasks. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mathematics.html" class="btn btn-neutral float-left" title="Mathematics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, pulgamecanica.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

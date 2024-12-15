@@ -61,11 +61,23 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N18ThreadSafeIOStream14thread_prefix_E"><code class="docutils literal notranslate"><span class="pre">ThreadSafeIOStream::thread_prefix_</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv46Logger"><code class="docutils literal notranslate"><span class="pre">Logger</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Logger6LoggerERNSt7ostreamE"><code class="docutils literal notranslate"><span class="pre">Logger::Logger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Logger3logE8LogLevelRKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">Logger::log()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Logger11setLogLevelE8LogLevel"><code class="docutils literal notranslate"><span class="pre">Logger::setLogLevel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Logger13levelToStringE8LogLevel"><code class="docutils literal notranslate"><span class="pre">Logger::levelToString()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Logger12getTimestampEv"><code class="docutils literal notranslate"><span class="pre">Logger::getTimestamp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Logger7stream_E"><code class="docutils literal notranslate"><span class="pre">Logger::stream_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Logger6mutex_E"><code class="docutils literal notranslate"><span class="pre">Logger::mutex_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Logger14min_log_level_E"><code class="docutils literal notranslate"><span class="pre">Logger::min_log_level_</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="thread.html">Thread</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network.html">Network</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mathematics.html">Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time.html">Time</a></li>
 </ul>
 
         </div>
@@ -195,6 +207,100 @@
 <dt class="sig sig-object cpp" id="_CPPv4N18ThreadSafeIOStream14thread_prefix_E">
 <span id="_CPPv3N18ThreadSafeIOStream14thread_prefix_E"></span><span id="_CPPv2N18ThreadSafeIOStream14thread_prefix_E"></span><span id="ThreadSafeIOStream::thread_prefix___ss"></span><span class="target" id="classThreadSafeIOStream_1a49851ec6fee620c9d1bf05c764d9a82e"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">thread_local</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">thread_prefix_</span></span></span><a class="headerlink" href="#_CPPv4N18ThreadSafeIOStream14thread_prefix_E" title="Link to this definition"></a><br /></dt>
 <dd><p>Thread-local prefix for each thread. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv46Logger">
+<span id="_CPPv36Logger"></span><span id="_CPPv26Logger"></span><span id="Logger"></span><span class="target" id="classLogger"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Logger</span></span></span><a class="headerlink" href="#_CPPv46Logger" title="Link to this definition"></a><br /></dt>
+<dd><p>A flexible, thread-safe logger that supports logging to any stream. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Logger6LoggerERNSt7ostreamE">
+<span id="_CPPv3N6Logger6LoggerERNSt7ostreamE"></span><span id="_CPPv2N6Logger6LoggerERNSt7ostreamE"></span><span id="Logger::Logger__osR"></span><span class="target" id="classLogger_1a72c4df16315861d6d6b26f90e60b00d5"></span><span class="sig-name descname"><span class="n"><span class="pre">Logger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">stream</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Logger6LoggerERNSt7ostreamE" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs a <a class="reference internal" href="#classLogger"><span class="std std-ref">Logger</span></a> with a specified output stream. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stream</strong> – The initial output stream. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Logger3logE8LogLevelRKNSt6stringE">
+<span id="_CPPv3N6Logger3logE8LogLevelRKNSt6stringE"></span><span id="_CPPv2N6Logger3logE8LogLevelRKNSt6stringE"></span><span id="Logger::log__LogLevel.ssCR"></span><span class="target" id="classLogger_1a3d3f0801eeaf39b33a906ea8569c19b2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">log</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">LogLevel</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">level</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">message</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Logger3logE8LogLevelRKNSt6stringE" title="Link to this definition"></a><br /></dt>
+<dd><p>Logs a message with the specified log level. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>level</strong> – The log level. </p></li>
+<li><p><strong>message</strong> – The message to log. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Logger11setLogLevelE8LogLevel">
+<span id="_CPPv3N6Logger11setLogLevelE8LogLevel"></span><span id="_CPPv2N6Logger11setLogLevelE8LogLevel"></span><span id="Logger::setLogLevel__LogLevel"></span><span class="target" id="classLogger_1a00fdcdbeb39a2d5d4fb27cc36c35c101"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setLogLevel</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">LogLevel</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">level</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Logger11setLogLevelE8LogLevel" title="Link to this definition"></a><br /></dt>
+<dd><p>Sets the minimum log level. Messages below this level will not be logged. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>level</strong> – The minimum log level. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6Logger13levelToStringE8LogLevel">
+<span id="_CPPv3NK6Logger13levelToStringE8LogLevel"></span><span id="_CPPv2NK6Logger13levelToStringE8LogLevel"></span><span id="Logger::levelToString__LogLevelC"></span><span class="target" id="classLogger_1abffd3a5b9e2cfb2abc4f2c33b7694d6c"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">levelToString</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">LogLevel</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">level</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK6Logger13levelToStringE8LogLevel" title="Link to this definition"></a><br /></dt>
+<dd><p>Converts a log level to its string representation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>level</strong> – The log level. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The string representation of the log level. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6Logger12getTimestampEv">
+<span id="_CPPv3NK6Logger12getTimestampEv"></span><span id="_CPPv2NK6Logger12getTimestampEv"></span><span id="Logger::getTimestampC"></span><span class="target" id="classLogger_1ae1ce19b49635f3e8cbb99f71e4fa69ec"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getTimestamp</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK6Logger12getTimestampEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Gets the current timestamp as a string. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The timestamp string in the format “YYYY-MM-DD HH:MM:SS”. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Logger7stream_E">
+<span id="_CPPv3N6Logger7stream_E"></span><span id="_CPPv2N6Logger7stream_E"></span><span id="Logger::stream___osP"></span><span class="target" id="classLogger_1af4c306dfad19fc7e37c9bb4e597fd6ff"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">stream_</span></span></span><a class="headerlink" href="#_CPPv4N6Logger7stream_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Pointer to the current output stream. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Logger6mutex_E">
+<span id="_CPPv3N6Logger6mutex_E"></span><span id="_CPPv2N6Logger6mutex_E"></span><span id="Logger::mutex___std::mutex"></span><span class="target" id="classLogger_1a9e74a559ca8a34e2a0a66c5c8ac1e4fd"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mutex</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mutex_</span></span></span><a class="headerlink" href="#_CPPv4N6Logger6mutex_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Mutex for thread-safe logging. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Logger14min_log_level_E">
+<span id="_CPPv3N6Logger14min_log_level_E"></span><span id="_CPPv2N6Logger14min_log_level_E"></span><span id="Logger::min_log_level___LogLevel"></span><span class="target" id="classLogger_1a630f749251b945411f3379b56e7d0826"></span><span class="n"><span class="pre">LogLevel</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">min_log_level_</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">LogLevel</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DEBUG</span></span><a class="headerlink" href="#_CPPv4N6Logger14min_log_level_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Minimum log level. </p>
 </dd></dl>
 
 </div>

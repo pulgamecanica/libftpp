@@ -21,6 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Time" href="time.html" />
     <link rel="prev" title="Network" href="network.html" /> 
 </head>
 
@@ -91,8 +92,25 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N8IVector31zE"><code class="docutils literal notranslate"><span class="pre">IVector3::z</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv427Random2DCoordinateGenerator"><code class="docutils literal notranslate"><span class="pre">Random2DCoordinateGenerator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N27Random2DCoordinateGenerator27Random2DCoordinateGeneratorERKx"><code class="docutils literal notranslate"><span class="pre">Random2DCoordinateGenerator::Random2DCoordinateGenerator()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK27Random2DCoordinateGenerator4seedEv"><code class="docutils literal notranslate"><span class="pre">Random2DCoordinateGenerator::seed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK27Random2DCoordinateGeneratorclERKxRKx"><code class="docutils literal notranslate"><span class="pre">Random2DCoordinateGenerator::operator()()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N27Random2DCoordinateGenerator10seed_valueE"><code class="docutils literal notranslate"><span class="pre">Random2DCoordinateGenerator::seed_value</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv413PerlinNoise2D"><code class="docutils literal notranslate"><span class="pre">PerlinNoise2D</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N13PerlinNoise2D13PerlinNoise2DEi"><code class="docutils literal notranslate"><span class="pre">PerlinNoise2D::PerlinNoise2D()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK13PerlinNoise2D6sampleEff"><code class="docutils literal notranslate"><span class="pre">PerlinNoise2D::sample()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK13PerlinNoise2D4fadeEf"><code class="docutils literal notranslate"><span class="pre">PerlinNoise2D::fade()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK13PerlinNoise2D4lerpEfff"><code class="docutils literal notranslate"><span class="pre">PerlinNoise2D::lerp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK13PerlinNoise2D4gradEiff"><code class="docutils literal notranslate"><span class="pre">PerlinNoise2D::grad()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N13PerlinNoise2D12permutation_E"><code class="docutils literal notranslate"><span class="pre">PerlinNoise2D::permutation_</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="time.html">Time</a></li>
 </ul>
 
         </div>
@@ -570,6 +588,164 @@
 </div>
 </dd></dl>
 
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv427Random2DCoordinateGenerator">
+<span id="_CPPv327Random2DCoordinateGenerator"></span><span id="_CPPv227Random2DCoordinateGenerator"></span><span id="Random2DCoordinateGenerator"></span><span class="target" id="classRandom2DCoordinateGenerator"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Random2DCoordinateGenerator</span></span></span><a class="headerlink" href="#_CPPv427Random2DCoordinateGenerator" title="Link to this definition"></a><br /></dt>
+<dd><p>A pseudo-random number generator using a 2D coordinate and seed. </p>
+<p>Generates deterministic pseudo-random numbers based on a seed and 2D coordinates. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N27Random2DCoordinateGenerator27Random2DCoordinateGeneratorERKx">
+<span id="_CPPv3N27Random2DCoordinateGenerator27Random2DCoordinateGeneratorERKx"></span><span id="_CPPv2N27Random2DCoordinateGenerator27Random2DCoordinateGeneratorERKx"></span><span id="Random2DCoordinateGenerator::Random2DCoordinateGenerator__l-lCR"></span><span class="target" id="classRandom2DCoordinateGenerator_1a92cab8164cae450658099e332efeb775"></span><span class="sig-name descname"><span class="n"><span class="pre">Random2DCoordinateGenerator</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">seed</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">42LL</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N27Random2DCoordinateGenerator27Random2DCoordinateGeneratorERKx" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs a <code class="docutils literal notranslate"><a class="reference internal" href="#classRandom2DCoordinateGenerator"><span class="std std-ref"><span class="pre">Random2DCoordinateGenerator</span></span></a></code> with a given seed. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>seed</strong> – The seed for the generator. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK27Random2DCoordinateGenerator4seedEv">
+<span id="_CPPv3NK27Random2DCoordinateGenerator4seedEv"></span><span id="_CPPv2NK27Random2DCoordinateGenerator4seedEv"></span><span id="Random2DCoordinateGenerator::seedC"></span><span class="target" id="classRandom2DCoordinateGenerator_1a74774a1aaf791710292baa444ae3d679"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">seed</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK27Random2DCoordinateGenerator4seedEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Returns the current seed of the generator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The seed as an long long. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK27Random2DCoordinateGeneratorclERKxRKx">
+<span id="_CPPv3NK27Random2DCoordinateGeneratorclERKxRKx"></span><span id="_CPPv2NK27Random2DCoordinateGeneratorclERKxRKx"></span><span id="Random2DCoordinateGenerator::call-operator__l-lCR.l-lCRC"></span><span class="target" id="classRandom2DCoordinateGenerator_1ab0f7d523fc64d5631a15eab634ccffed"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">()</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">x</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">y</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK27Random2DCoordinateGeneratorclERKxRKx" title="Link to this definition"></a><br /></dt>
+<dd><p>Generates a pseudo-random number using the given coordinates. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – The x-coordinate. </p></li>
+<li><p><strong>y</strong> – The y-coordinate. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A pseudo-random number as long long. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N27Random2DCoordinateGenerator10seed_valueE">
+<span id="_CPPv3N27Random2DCoordinateGenerator10seed_valueE"></span><span id="_CPPv2N27Random2DCoordinateGenerator10seed_valueE"></span><span id="Random2DCoordinateGenerator::seed_value__l-lC"></span><span class="target" id="classRandom2DCoordinateGenerator_1ae8adbf2e0aa505ce2175f59058e1bdc5"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">seed_value</span></span></span><a class="headerlink" href="#_CPPv4N27Random2DCoordinateGenerator10seed_valueE" title="Link to this definition"></a><br /></dt>
+<dd><p>The seed value for the generator. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv413PerlinNoise2D">
+<span id="_CPPv313PerlinNoise2D"></span><span id="_CPPv213PerlinNoise2D"></span><span id="PerlinNoise2D"></span><span class="target" id="classPerlinNoise2D"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PerlinNoise2D</span></span></span><a class="headerlink" href="#_CPPv413PerlinNoise2D" title="Link to this definition"></a><br /></dt>
+<dd><p>A class for generating 2D Perlin noise values. </p>
+<p>Provides methods to sample Perlin noise at given 2D coordinates. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N13PerlinNoise2D13PerlinNoise2DEi">
+<span id="_CPPv3N13PerlinNoise2D13PerlinNoise2DEi"></span><span id="_CPPv2N13PerlinNoise2D13PerlinNoise2DEi"></span><span id="PerlinNoise2D::PerlinNoise2D__i"></span><span class="target" id="classPerlinNoise2D_1abfe9dbb3de37c41088e35f0250bcbdde"></span><span class="sig-name descname"><span class="n"><span class="pre">PerlinNoise2D</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">seed</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">42</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13PerlinNoise2D13PerlinNoise2DEi" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs a <code class="docutils literal notranslate"><a class="reference internal" href="#classPerlinNoise2D"><span class="std std-ref"><span class="pre">PerlinNoise2D</span></span></a></code> generator with an optional seed. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>seed</strong> – The seed for initializing the noise generator (default: 42). </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK13PerlinNoise2D6sampleEff">
+<span id="_CPPv3NK13PerlinNoise2D6sampleEff"></span><span id="_CPPv2NK13PerlinNoise2D6sampleEff"></span><span id="PerlinNoise2D::sample__float.floatC"></span><span class="target" id="classPerlinNoise2D_1aaf8b71c6f2062cc103da6a2b74295186"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sample</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK13PerlinNoise2D6sampleEff" title="Link to this definition"></a><br /></dt>
+<dd><p>Samples Perlin noise at the given 2D coordinates. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – The x-coordinate. </p></li>
+<li><p><strong>y</strong> – The y-coordinate. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A float value representing the Perlin noise at the coordinates in range [-1, 1]. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK13PerlinNoise2D4fadeEf">
+<span id="_CPPv3NK13PerlinNoise2D4fadeEf"></span><span id="_CPPv2NK13PerlinNoise2D4fadeEf"></span><span id="PerlinNoise2D::fade__floatC"></span><span class="target" id="classPerlinNoise2D_1a3953af3154d6e631dbb6a3a6ee926824"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fade</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">t</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK13PerlinNoise2D4fadeEf" title="Link to this definition"></a><br /></dt>
+<dd><p>Computes a fade function for smoothing. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>t</strong> – The input value. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The smoothed value. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK13PerlinNoise2D4lerpEfff">
+<span id="_CPPv3NK13PerlinNoise2D4lerpEfff"></span><span id="_CPPv2NK13PerlinNoise2D4lerpEfff"></span><span id="PerlinNoise2D::lerp__float.float.floatC"></span><span class="target" id="classPerlinNoise2D_1a873b5ee1e87330bb09d007b5b202cbbe"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lerp</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">t</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">a</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK13PerlinNoise2D4lerpEfff" title="Link to this definition"></a><br /></dt>
+<dd><p>Computes a linear interpolation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> – The interpolation factor. </p></li>
+<li><p><strong>a</strong> – The start value. </p></li>
+<li><p><strong>b</strong> – The end value. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The interpolated value. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK13PerlinNoise2D4gradEiff">
+<span id="_CPPv3NK13PerlinNoise2D4gradEiff"></span><span id="_CPPv2NK13PerlinNoise2D4gradEiff"></span><span id="PerlinNoise2D::grad__i.float.floatC"></span><span class="target" id="classPerlinNoise2D_1ad6457eeee6be81461abc37fdcc492d6d"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grad</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">hash</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK13PerlinNoise2D4gradEiff" title="Link to this definition"></a><br /></dt>
+<dd><p>Computes a gradient for a hash and coordinates. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hash</strong> – The gradient hash value. </p></li>
+<li><p><strong>x</strong> – The x-offset. </p></li>
+<li><p><strong>y</strong> – The y-offset. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The gradient dot product. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N13PerlinNoise2D12permutation_E">
+<span id="_CPPv3N13PerlinNoise2D12permutation_E"></span><span id="_CPPv2N13PerlinNoise2D12permutation_E"></span><span id="PerlinNoise2D::permutation___std::vector:i:"></span><span class="target" id="classPerlinNoise2D_1a1d4d2f87e58c96c3ed2890c5e724915f"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">permutation_</span></span></span><a class="headerlink" href="#_CPPv4N13PerlinNoise2D12permutation_E" title="Link to this definition"></a><br /></dt>
+<dd><p>Permutation table for gradient hashing. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
 </section>
 
 
@@ -577,6 +753,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="network.html" class="btn btn-neutral float-left" title="Network" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="time.html" class="btn btn-neutral float-right" title="Time" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
